@@ -1,0 +1,185 @@
+<html>
+    <head>
+        <title>
+            DashBoard Content
+        </title>
+        <link rel="stylesheet" href="tempCSS.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  
+        
+    </head>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script> 
+    
+
+    <script id="mainScript">
+
+//----------------------------Configuration----------------------------------------------------------------------// 
+        var firebaseConfig = {
+            apiKey: "AIzaSyC-0Xtx0PB_19U6-lg_jO7aSNm8Gje2mRE",
+            authDomain: "e-sathi-29f0d.firebaseapp.com",
+            databaseURL: "https://e-sathi-29f0d-default-rtdb.firebaseio.com",
+            projectId: "e-sathi-29f0d",
+            storageBucket: "e-sathi-29f0d.appspot.com",
+            messagingSenderId: "975095967417",
+            appId: "1:975095967417:web:491ebc156d1fe203d17568",
+            measurementId: "G-8KQ2LCN92Z"
+        };
+        
+//---------------------------Initialize Firebase-----------------------------------------------------------------//
+        
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+                               
+//----------------------------Ready Data--------------------------------------------------------------------------//
+ var hashV,infoV,AgeV,All_okayV,AllotedV,BannedV,CityV,CommisionV,DOJV,License_NoV,PhoneV,UsernameV,Vehcile_NoV;
+ 
+        function defaultFun()
+        {
+        var hashV,infoV,AgeV,UsernameV,EmailV,countV=0;
+
+        
+
+            var query = firebase.database().ref("D2D driver/");
+            query.once("value")
+                .then(function(snapshot) {
+                    snapshot.forEach(function(childSnapshot) {
+                        
+                        hashV = childSnapshot.key;
+                        
+                        firebase.database().ref("D2D driver/"+hashV+"/Information/").on('value',function(snapshot){
+                          countV=countV+1;
+                            var AgeV = snapshot.val().Age;
+                            var UsernameV = snapshot.val().Username;
+                            if(snapshot.val().Live){
+							var LiveV = 'Y';
+							}
+							else
+							{
+							var LiveV = 'N';}
+							
+                            var PhoneV = snapshot.val().Phone;
+                            var All_okayV = snapshot.val().All_okay;
+							if(All_okayV){
+							var ApprovedV = 'Y';
+							}
+							else
+							{
+							var ApprovedV = 'N';}
+                            var AllotedV = snapshot.val().Alloted;
+                            var BannedV = snapshot.val().Banned;
+							if(BannedV)
+							{
+								$("input[type=checkbox]").prop("checked", true);
+							}
+							else
+							{
+								$("input[type=checkbox]").prop("checked", false);
+							} 
+												
+                            var CityV = snapshot.val().City;
+                            var CommisionV = snapshot.val().Commision;
+                            var DOJV = snapshot.val().DOJ;
+                            var Vehcile_NoV = snapshot.val().Vehcile_No;
+                            var str="<tr>"+
+                                    "<td>"+countV+"</td>"+
+                                    "<td>"+UsernameV+"</td>"+
+                                    "<td>"+PhoneV+"</td>"+
+                                    "<td>"+EmailV+"</td>"+
+                                    "<td>2000$</td>"+
+                                    "<td>"+LiveV+"</td>"+
+                                    "<td><p id='pp'>"+BannedV+"</p>"+
+                                      "<div class='form-check form-switch'>"+
+                                      "<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault'  />"+
+                                      "<label class='form-check-label' for='flexSwitchCheckDefault'></label>"+
+                                      "</div>"+
+                                    "</td>"+
+                                    "<td>"+ApprovedV+"</td>"+
+                                    "<td><div class='dropdown bg-transparent'>"+
+                                      "<button class='btn' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>- - -</button>"+
+                                      "<div class='dropdown-menu' aria-labelledby='dropdownMenu2'>"+
+                                        "<button class='dropdown-item' type='button'>Edit</button>"+
+                                        "<button class='dropdown-item' type='button'>Transaction</button>"+
+                                        "<button class='dropdown-item' type='button'>Points</button>"+
+                                      "</div>"+
+                                      "</div>"+
+                                    "</td>"+
+                                "</tr>";
+                                console.log(str);
+                                $('#add').append(str);
+                            //Commisiion / Commission / Commision
+                            //document.write(str);
+                        });
+                    
+                    });
+                });
+        
+    }
+	
+    </script>
+
+
+
+    <body onload="defaultFun()">
+
+      
+        <div class="headContent" >
+            <div class="panelContainer">
+                <div class="adminPart">
+                    <h2> <i>Manage Driver</i> </h2>
+                    
+
+                 
+                      <nav aria-label="breadcrumb" class="breadClass">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Driver</li>
+                        </ol>
+                      </nav>
+                </div>
+
+               
+                
+                <h3 style="margin-left:25px;">Driver Listing</h3>
+                <br>
+                <div class="tablecontent">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">Sr.No</th>
+                              <th scope="col">FULL NAME</th>
+                              <th scope="col">PHONE</th>
+                              <th scope="col">EMAIL</th>
+                              <th scope="col">BALANCE</th>
+                              <th scope="col">ONLINE</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">APPROVED</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody  id="add">
+
+                              
+
+                          </tbody>
+
+                    </table>
+
+                </div>
+
+                     
+                
+               
+                    
+            </div>
+            <br>
+            <br>
+    </body>
+</html>
