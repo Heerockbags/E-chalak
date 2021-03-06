@@ -1,0 +1,493 @@
+<html>
+    <head>
+        <title>
+            Manage Admin Users
+        </title>
+        <link rel="stylesheet" href="tempCSS.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+        
+    </head>
+    <body onload="displayAdmin()">
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script> 
+	<script id="mainScript">
+
+//----------------------------Configuration----------------------------------------------------------------------// 
+        var firebaseConfig = {
+            apiKey: "AIzaSyC-0Xtx0PB_19U6-lg_jO7aSNm8Gje2mRE",
+            authDomain: "e-sathi-29f0d.firebaseapp.com",
+            databaseURL: "https://e-sathi-29f0d-default-rtdb.firebaseio.com",
+            projectId: "e-sathi-29f0d",
+            storageBucket: "e-sathi-29f0d.appspot.com",
+            messagingSenderId: "975095967417",
+            appId: "1:975095967417:web:491ebc156d1fe203d17568",
+            measurementId: "G-8KQ2LCN92Z"
+        };
+        
+//---------------------------Initialize Firebase-----------------------------------------------------------------//
+        
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    
+//----------------------------Add admin--------------------------------------------------------------------------//
+		
+	  var a_name,a_usrname,a_email,a_password,a_cnfpassword;
+		function addAdmin()
+		{
+			a_name=document.getElementById('admin_name').value;
+			a_usrname=document.getElementById('admin_username').value;
+			a_email=document.getElementById('admin_email').value;
+			a_status=document.getElementById('statsId').value;
+			a_password=document.getElementById('admin_password').value;
+			a_cnfpassword=document.getElementById('admin_cnfpassword').value;
+			if(a_password != a_cnfpassword){
+				document.getElementById('pass-check').innerHTML = "**Those passwords didn’t match. Try again";
+			}
+			else{
+				firebase.database().ref('Admin_User/' + a_usrname).set({
+					Admin_Name: a_name,
+					Admin_Username: a_usrname,
+					Admin_Email: a_email,
+					Admin_Password: a_password,
+					Admin_Status: a_status
+				});
+			}
+			
+		}
+//----------------------------Display Admin--------------------------------------------------------------------------//
+
+	function displayAdmin()
+        {
+        var NameV,UsernameV,EmailV,PasswordV,StatusV,countV=0;
+            var query = firebase.database().ref("Admin_User/");
+            query.once("value")
+                .then(function(snapshot) {
+                    snapshot.forEach(function(childSnapshot) {
+                        
+                        UsernameV = childSnapshot.key;
+                        firebase.database().ref("Admin_User/"+UsernameV).on('value',function(snapshot){
+                          countV=countV+1;
+						  var NameV = snapshot.val().Admin_Name;
+                          var PasswordV = snapshot.val().Admin_Password;
+                          var EmailV = snapshot.val().Admin_Email;
+                          var UsrnameV = snapshot.val().Admin_Username;
+                          var StatusV = snapshot.val().Admin_Status;
+                         // SArray[countV-1]=snapshot.val().Admin_Username;
+
+                          var tbody = document.getElementById('admin-list');
+                          var trow = document.createElement('tr');
+                          var td1 = document.createElement('td');
+                          var td2 = document.createElement('td');
+                          var td3 = document.createElement('td');
+                          var td4 = document.createElement('td');
+                          var td5 = document.createElement('td');
+                          var td6 = document.createElement('td');
+                          var td7 = document.createElement('td');
+                          td1.innerHTML= countV;
+                          td2.innerHTML= NameV;
+                          td3.innerHTML= UsrnameV;
+                          td4.innerHTML= EmailV;
+                          td5.innerHTML= "No";
+                          var div1 = document.createElement('div');
+                          var div2 = document.createElement('div');
+                          var div3 = document.createElement('div');
+                          div1.className= "form-check form-switch";
+                          div2.className= "dropdown bg-transparent";
+                          div3.className= "dropdown-menu";
+                          div3.setAttribute("aria-labelledby","dropdownMenu2");
+                          
+                          if(StatusV=="active"){
+                              var statuschecked = document.createElement('INPUT');
+                              statuschecked.setAttribute("type", "checkbox");
+                              statuschecked.setAttribute("class", "form-check-input");
+                              statuschecked.setAttribute("id", "flexSwitchCheckChecked");
+                              statuschecked.setAttribute("checked",true);
+                          }
+                          else{
+                            var statuschecked = document.createElement('INPUT');
+                              statuschecked.setAttribute("type", "checkbox");
+                              statuschecked.setAttribute("class", "form-check-input");
+                              statuschecked.setAttribute("id", "flexSwitchCheckChecked");
+                          }
+                          //statuschecked.setAttribute("onclick",statusupdate());
+                          var label1 = document.createElement("LABEL");
+                          label1.setAttribute("class","form-check-label");
+                          var but1= document.createElement("button");
+                          var but2= document.createElement("button");
+                          var but3= document.createElement("button");
+                          var but4= document.createElement("button");
+                          but1.innerHTML="---";
+                          but1.className="btn";
+                          but2.className="dropdown-item";
+                          but3.className="dropdown-item";
+                          but4.className="dropdown-item";
+                          but1.setAttribute("id","dropdownMenu2");
+                          but1.setAttribute("data-toggle","dropdown");
+                          but1.setAttribute("aria-expanded","false");
+                          but1.setAttribute("aria-haspopup","true");
+                          but2.innerHTML="Edit";
+                          but2.setAttribute("onclick","document.getElementById('action').style.display='block';");
+                          but3.innerHTML="Change Password";
+                          but3.setAttribute("onclick","document.getElementById('changePassword').style.display='block';");
+                          but4.innerHTML="Permission";
+
+
+
+
+
+
+
+                          div1.appendChild(statuschecked);
+                          div1.appendChild(label1);
+                          div2.appendChild(but1);
+                          div3.appendChild(but2);
+                          div3.appendChild(but3);
+                          div3.appendChild(but4);
+                          div2.appendChild(div3);
+                          td6.appendChild(div1);
+                          td7.appendChild(div2);
+
+                          trow.appendChild(td1);
+                          trow.appendChild(td2);
+                          trow.appendChild(td3);
+                          trow.appendChild(td4);
+                          trow.appendChild(td5);
+                          trow.appendChild(td6);
+                          trow.appendChild(td7);
+                          tbody.appendChild(trow);
+
+						});
+                    
+                    });
+                });
+        
+
+                
+    }
+    </script>
+
+
+
+
+
+	
+
+      
+        <div class="headContent" >
+            <div class="panelContainer">
+                  <div class="adminPart">
+                      <h2> Manage Admin Users </h2>
+                      <nav aria-label="breadcrumb" class="breadClass">
+                          <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Admin Users</li>
+                          </ol>
+                        </nav>
+                  </div>
+
+                   <!-------Search Bar-->
+               <form class="example" >
+                <input type="text" placeholder="Search.." name="search" class="js-open-modal">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+              <br>
+              <br>
+
+              <!-----filter-->
+              <div class="box" id="filter">
+                <form>
+                  <div class="container" >
+        
+                    <hr>
+                    <div class="text1">
+                    <label for="keyword"><b>Keyword</b></label><br>
+                    <input type="text" class="textInput" placeholder="Enter Keyword" name="email" id="email" required>
+                
+                    <label for="status"><b>STATUS</b></label><br>
+                    <select id="status">
+                      <option value="DNT">Does not matter</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                
+                    <label for="balance_from"><b>Balance from</b></label><br>
+                    <input type="date" class="textInput" placeholder="Balance from">
+
+                    <label for="balance_To"><b>Balance To</b></label><br>
+                    <input type="date" class="textInput" placeholder="Balance To" >
+                  </div>
+
+                   <div class="text2">
+                    <label for="Reg._date_from"><b>Reg. Date From</b></label><br>
+                    <input type="date" class="textInput">
+
+                    <label for="Reg._date_To"><b>Reg. Date To</b></label><br>
+                    <input type="date" class="textInput">
+
+                    <label for="Approved"><b>Approved</b></label><br>
+                    <select id="Approval">
+                      <option value="DNT">Does not matter</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                    <button type="submit" class="searchbtn">SEARCH</button>
+                    <button type="submit" class="clearbtn">CLEAR SEARCH</button>
+                  </div>
+                  
+                  </div>
+                </form>
+              </div>
+               
+                <br>
+                <br>
+
+                <div class="textHeading">
+                  <h3 style="margin-left:25px;"><b>Admin User Listing</b> 
+                     <a onclick="document.getElementById('head1').style.display='block';"class="btn btn-light " style="float:right;margin-right:20px;"href="#" role="button">
+                       <span style="float:right;margin-right:25px;"> + Add Admin Users</span>
+                      </a>
+                    </h3>
+                </div>
+
+                <!--Change Password-->
+
+                <div class="modal" id="head1">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('head1').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                   <h3 style="margin-left:20px ;"><b>Admin User Setup</b></h3> 
+                   <div class="borderForm">
+                  
+                      <div class="container-form">
+
+                        <label for="fname"><b>Full Name*</b></label>
+                        <input id="admin_name" type="text" placeholder="Enter FullName" name="uname" required>
+                        <br>
+                        <br>
+
+                  
+                        
+                        <label for="uname"><b>Username*</b></label>
+                        <input id="admin_username" type="text" placeholder="Enter Username" name="uname" required>
+
+                        <br>
+                        <br>
+
+                      
+                  
+
+                        <label for="email"><b>E-mail*</b></label>
+                        <input id="admin_email" type="email" name="email" required>
+
+                        <br>
+                        <br>
+                  
+                  
+                        <label for="psw"><b>Password*</b></label>
+                        <input id="admin_password" type="password" name="psw" required>
+                        
+                        <br>
+                        <br>
+                  
+                        <label for="pswConfirm"><b>Confirm Password*</b></label>
+                        <input id="admin_cnfpassword" type="password" name="pswConfirm" required>
+
+						            <span id="pass-check"></span>
+                        <br>
+                        <br>
+                  
+
+                        <label for="stats"><b>Status</b></label>
+                        <select name="stats" id="statsId">
+                          <option value="active">Active</option>
+                          <option value="inactive">In-active</option>
+                         
+                        </select>
+                        
+						
+                  
+                        <button class="btn btn-primary" onclick="addAdmin()">Save Changes</button>
+                       
+                      </div>
+                  
+                     
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+                <!--Add Admin User -->
+
+                <div class="modal" id="action">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('action').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                   <h3 style="margin-left:20px ;"><b>Admin User Setup</b></h3> 
+                   <div class="borderForm">
+                    <form onsubmit ="return validateForm()">
+                  
+                      <div class="container-form">
+
+                        <label for="fname"><b>Full Name*</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+                        <br>
+                        <br>
+
+                  
+                        
+                        <label for="uname"><b>Username*</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+
+                        <br>
+                        <br>
+
+                       <label for="email"><b>E-mail*</b></label>
+                        <input type="email" name="email" required>
+
+                        <br>
+                        <br>
+                  
+                        <button class="btn btn-primary" type="submit" >Save Changes</button>
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+                <!--Change Password-->
+
+                <div class="modal" id="changePassword">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('changePassword').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                   <h3 style="margin-left:20px ;"><b>Admin User Change Password ( Navneet Ojha) </b></h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        
+                        <label for="pswNew"><b>New Password*</b></label>
+                        <input type="password" name="pswNew" required>
+                        
+                        <br>
+                        <br>
+                  
+                        <label for="pswConfirm"><b>Confirm Password*</b></label>
+                        <input type="password" name="pswConfirm" required>
+
+                        <br>
+                        <br>
+                  
+                        <button class="btn btn-primary" type="submit" >Save Changes</button>
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+
+                
+                
+
+
+                <br>
+                <!--Table Listing-->
+                <div class="tablecontent">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">Sr.No</th>
+                              <th scope="col">FULL NAME</th>
+                              <th scope="col">USERNAME</th>
+                              <th scope="col">EMAIL</th>
+                              <th scope="col">SUPER ADMIN</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody id="admin-list">
+                              
+   
+                          </tbody>
+
+                    </table>
+
+                </div>
+
+                  
+            </div>
+    </div>
+            <br>
+            <br>
+
+            <!--Search Bar Script-->
+            <script>
+              $(".js-open-modal").click(function(){
+              $(".box").addClass("visible");
+            });
+
+            $(".js-close-modal").click(function(){
+              $(".box").removeClass("visible");
+            });
+
+            $(document).click(function(event) {
+              
+              if (!$(event.target).closest(".box,.js-open-modal").length) {
+                $("body").find(".box").removeClass("visible");
+              }
+            });
+            </script>
+
+            <!--AddAdminUser Action ChangePassword Script-->
+            <script>
+
+              
+              var modal=document.getElementById('head1');
+              var action1=document.getElementById('action');
+              var changePassword1=document.getElementById('changePassword');
+              
+              window.onclick=function(event){
+                if(event.target == modal || event.target == action1 || event.target == changePassword1){
+                  modal.style.display="none";
+                  action1.style.display="none";
+                  changePassword1.style.display="none";
+                }
+              }
+            </script>
+    </body>
+</html>
