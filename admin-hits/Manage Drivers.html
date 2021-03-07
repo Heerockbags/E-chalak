@@ -77,11 +77,11 @@
                             var BannedV = snapshot.val().Banned;
 							if(BannedV)
 							{
-								$("input[type=checkbox]").prop("checked", false);
+								$("input[type=checkbox]").prop("checked", true);
 							}
 							else
 							{
-								$("input[type=checkbox]").prop("checked", true);
+								$("input[type=checkbox]").prop("checked", false);
 							} 
 												
                             var CityV = snapshot.val().City;
@@ -139,7 +139,7 @@
                  
                       <nav aria-label="breadcrumb" class="breadClass">
                         <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item"><a href="admin.html">Home</a></li>
                           <li class="breadcrumb-item active" aria-current="page">Driver</li>
                         </ol>
                       </nav>
