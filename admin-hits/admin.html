@@ -45,23 +45,119 @@
             var query = firebase.database().ref("D2D auto/");
             query.once("value")
                 .then(function(snapshot) {
+                    var countV=0,riderToday=0,riderWeek=0, riderMonth=0, riderQuarter=0;
                     snapshot.forEach(function(childSnapshot) {
                           countRider=countRider+1;
                            //str=str+countRider;
-                          console.log(countRider);
+                          //console.log(countRider);
+                          snapshot.forEach(function(childSnapshot) {
+                        
+                        hashV = childSnapshot.key;
+                        
+                        firebase.database().ref("D2D auto/"+hashV+"/Information/").on('value',function(snapshot){
+                            var DOJV = snapshot.val().DOJ;
+                            var resr = DOJV.split("-");
+                            var d = new Date();
+                            var day=d.getDate();
+                            var month = d.getMonth();
+                            var year = d.getFullYear();
+                            var pastDate = d.getDate() - 7;
+                            //console.log(month-1);
+
+                            if(pastDate<0)
+                            {
+                                var date = new Date(d.getYear(), month , 0);
+                                pastDate=date.getDate()+pastDate;
+                                //console.log(pastDate);
+                            }
+
+                            //ourDate.setDate(pastDate);
+                            //console.log(resr);
+
+                            if(resr[0]==day&&resr[1]==month+1 && resr[2]==year-1)
+                            {
+                                riderToday=riderToday+1;
+                                //console.log(driverToday);
+                            }
+
+                            if(resr[0]>pastDate && resr[1]==month+1)
+                            {
+                                riderWeek=riderWeek+1;
+                                //console.log(driverWeek);
+
+                            }
+                            if(resr[1]>=month-1 &&(resr[2]==year || resr[2]==year-1))
+                            {
+                                riderQuarter=riderQuarter+1;
+                                console.log(riderQuarter);
+                                //$('#riderQuarter').append(riderQuarter);
+
+                            }
+                            if(resr[1]==month+1 && resr[2]==year)
+                            {
+                                countV=countV+1;
+                                riderMonth=countV;
+                            /*var UsernameV = snapshot.val().Username;
+                                var PhoneV = snapshot.val().Phone;
+                                var All_okayV = snapshot.val().All_okay;
+                                if(All_okayV){
+                                var ApprovedV = 'Y';
+                                }
+                                else
+                                {
+                                var ApprovedV = 'N';
+                                }
+                                
+                                if((snapshot.val().Banned)=="false")
+                                {
+                                    var BannedV = 'Y';
+                                }
+                                else
+                                {
+                                    var BannedV='N';
+                                }
+                                var DOJV = snapshot.val().DOJ;
+                                
+
+                                var s="<tr>"+
+                                "<th scope='row'>"+countV+"</th>"+
+                                "<td>"+UsernameV+"</td>"+
+                                "<td>"+PhoneV+"</td>"+
+                                "<td>0.00</td>"+
+                                "<td>0</td>"+
+                                "<td>"+BannedV+"</td>"+
+                                "<td>"+ApprovedV+"</td>"+
+                                "<td>"+DOJV+"</td>"+
+                                "</tr>";*/
+                                //$('#driverSection').append(s);
+                                //console.log(driverToday);
+                               //$('#riderToday').append(riderToday);
+                               //console.log(driverWeek);
+                               // $('#riderWeek').append(riderWeek);
+                               // $('#riderMonth').append(riderMonth);
+                               // $('#hriderMonth').append(riderMonth);
+                                
+                              //console.log(s);
+                            }
+
+                        });
+                    });
+
+
 
                         });
 			$('#hrider').append(countRider);
+            $('#riderTotal').append(countRider);
                     });				
 
             var query = firebase.database().ref("D2D driver/");
             query.once("value")
                 .then(function(snapshot) {
-                    var countV=0;
+                    var countV=0,driverToday=0,driverWeek=0, driverMonth=0, driverQuarter=0;
                     snapshot.forEach(function(childSnapshot) {
 
                     	countDriver=countDriver+1;
-                    	console.log(countDriver);
+                    	//console.log(countDriver);
                     
                     	 hashV = childSnapshot.key;
                     	 firebase.database().ref("D2D driver/"+hashV+"/Information/").on('value',function(snapshot){
@@ -69,9 +165,43 @@
                     	 	var DOJV = snapshot.val().DOJ;
                     	 	var res = DOJV.split("-");
                     	 	var d = new Date();
-                    	 	var n = d.getMonth();
+                            var day=d.getDate();
+                            var month = d.getMonth();
+                    	 	var year = d.getFullYear();
+                            var pastDate = d.getDate() - 7;
+                            
+                            //console.log(year);
+                            if(pastDate<0)
+                            {
+                                var date = new Date(d.getYear(), month , 0);
+                                pastDate=date.getDate()+pastDate;
+                                //console.log(pastDate);
+                            }
 
-                    	 	if(res[1]==n+1)
+                            //ourDate.setDate(pastDate);
+                            //console.log(res);
+
+                            if(res[0]==day&&res[1]==month+1 && res[2]==year)
+                            {
+                                driverToday=driverToday+1;
+                                //console.log(driverToday);
+                            }
+
+                            if(res[0]>pastDate && res[1]==month+1)
+                            {
+                                driverWeek=driverWeek+1;
+                                //console.log(driverWeek);
+
+                            }
+                            if(res[1]>=month-1 &&(res[2]==year || res[2]==year-1))
+                            {
+                                driverQuarter=driverQuarter+1;
+                                //console.log(driverQuarter);
+                                $('#driverQuarter').append(driverQuarter);
+
+                            }
+
+                    	 	if(res[1]==month+1 && res[2]==year)
                     	 	{
                     	 		countV=countV+1;
                             var UsernameV = snapshot.val().Username;
@@ -94,6 +224,7 @@
                                     var BannedV='N';
                                 }
                                 var DOJV = snapshot.val().DOJ;
+                                driverMonth=countV;
 
                                 var s="<tr>"+
                                 "<th scope='row'>"+countV+"</th>"+
@@ -104,13 +235,24 @@
                                 "<td>"+BannedV+"</td>"+
                                 "<td>"+ApprovedV+"</td>"+
                                 "<td>"+DOJV+"</td>"+
-                              "</tr>";
-                              $('#driverSection').append(s);
+                                "</tr>";
+                                $('#driverSection').append(s);
+                                //console.log(driverToday);
+                               $('#driverToday').append(driverToday);
+                               //console.log(driverWeek);
+                                $('#driverWeek').append(driverWeek);
+                                $('#driverMonth').append(driverMonth);
+                                $('#hdriverMonth').append(driverMonth);
+                                
+                              //console.log(s);
 							}
-                            console.log(s);
+                             
                     	 });
                         });
 			$('#hdriver').append(countDriver);
+            $('#driverTotal').append(countDriver);
+
+            
 
                 });
 
@@ -125,12 +267,12 @@
                 <div class="container ">
                     <div class="row panelRow" >
                         <div class="col-md-3 panelColumn" style="border:1px solid black;">
-                            <a href="Manage Riders.html" style="color: black;"><h1>New Riders</h1></a>
-                            <a href="Manage Riders.html" style="color: black;">
+                            <a href="Manage Riders.html" style="color: black; text-decoration: none;"><h1>New Riders</h1></a>
+                            <a href="Manage Riders.html" style="color: black; text-decoration: none;">
 	                           <div class="panelContent">
 	                           
 		                            <h2 id="hrider"></h2>
-		                            <p>This Month: 90</p>
+		                            <p id="hriderMonth">This Month: </p>
 
 	                           </div> 
 	                           <div class="panelImage" style="float:right;">
@@ -142,12 +284,12 @@
                             
                         </div>
                         <div class="col-md-3 panelColumn" style="border:1px solid black;">
-                            <a href="Manage Drivers.html" style="color: black;"><h1>New Drivers</h1></a>
-                            <a href="Manage Riders.html" style="color: black;">
+                            <a href="Manage Drivers.html" style="color: black; text-decoration: none;"><h1>New Drivers</h1></a>
+                            <a href="Manage Drivers.html" style="color: black; text-decoration: none;">
 	                           <div class="panelContent">
 	                           
 		                            <h2 id="hdriver"></h2>
-		                            <p>This Month: 90</p>
+		                            <p id="hdriverMonth">This Month: </p>
 
 	                           </div> 
 	                           <div class="panelImage" style="float:right;">
@@ -268,19 +410,19 @@
                             <tbody>
                               <tr>
                                 <th scope="row">RIDERS REGISTERD</th>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>18</td>
-                                <td>38</td>
-                                <td>283</td>
+                                <td id="riderToday"></td>
+                                <td id="riderWeek"></td>
+                                <td id="riderMonth"></td>
+                                <td id="riderQuarter"></td>
+                                <td id="riderTotal"></td>
                               </tr>
                               <tr>
                                 <th scope="row">DRIVERS REGISTERD</th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>19</td>
-                                <td>34</td>
-                                <td>293</td>
+                                <td id="driverToday"></td>
+                                <td id="driverWeek"></td>
+                                <td id="driverMonth"></td>
+                                <td id="driverQuarter"></td>
+                                <td id="driverTotal"></td>
                               </tr>
                               <tr>
                                 <th scope="row">RIDES COMPLETED</th>
