@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            E-Chalak
+            E-Chalak Dashboard
         </title>
         <link rel="stylesheet" href="adminCSS.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -50,7 +50,7 @@
                           countRider=countRider+1;
                            //str=str+countRider;
                           //console.log(countRider);
-                          snapshot.forEach(function(childSnapshot) {
+                          
                         
                         hashV = childSnapshot.key;
                         
@@ -90,14 +90,14 @@
                             {
                                 riderQuarter=riderQuarter+1;
                                 console.log(riderQuarter);
-                                //$('#riderQuarter').append(riderQuarter);
+                                $('#riderQuarter').append(riderQuarter);
 
                             }
-                            if(resr[1]==month+1 && resr[2]==year)
+                            if(resr[1]==month+1 && resr[2]==year && countV!=5)
                             {
                                 countV=countV+1;
                                 riderMonth=countV;
-                            /*var UsernameV = snapshot.val().Username;
+                                var UsernameV = snapshot.val().Username;
                                 var PhoneV = snapshot.val().Phone;
                                 var All_okayV = snapshot.val().All_okay;
                                 if(All_okayV){
@@ -108,7 +108,7 @@
                                 var ApprovedV = 'N';
                                 }
                                 
-                                if((snapshot.val().Banned)=="false")
+                                if((snapshot.val().Banned)==false)
                                 {
                                     var BannedV = 'Y';
                                 }
@@ -128,20 +128,19 @@
                                 "<td>"+BannedV+"</td>"+
                                 "<td>"+ApprovedV+"</td>"+
                                 "<td>"+DOJV+"</td>"+
-                                "</tr>";*/
-                                //$('#driverSection').append(s);
+                                "</tr>";
+                                $('#riderSection').append(s);
                                 //console.log(driverToday);
-                               //$('#riderToday').append(riderToday);
+                            $('#riderToday').append(riderToday);
                                //console.log(driverWeek);
-                               // $('#riderWeek').append(riderWeek);
-                               // $('#riderMonth').append(riderMonth);
-                               // $('#hriderMonth').append(riderMonth);
+                               $('#riderWeek').append(riderWeek);
+                                $('#riderMonth').append(riderMonth);
+                                $('#hriderMonth').append(riderMonth);
                                 
                               //console.log(s);
                             }
 
-                        });
-                    });
+                                            });
 
 
 
@@ -201,7 +200,7 @@
 
                             }
 
-                    	 	if(res[1]==month+1 && res[2]==year)
+                    	 	if(res[1]==month+1 && res[2]==year && countV!=5)
                     	 	{
                     	 		countV=countV+1;
                             var UsernameV = snapshot.val().Username;
@@ -246,8 +245,10 @@
                                 
                               //console.log(s);
 							}
+
                              
                     	 });
+                            
                         });
 			$('#hdriver').append(countDriver);
             $('#driverTotal').append(countDriver);
@@ -468,37 +469,8 @@
                                 <th scope="col">ADDED ON</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>SUMAN</td>
-                                <td>+918362783986</td>
-                                <td>0.00</td>
-                                <td>0</td>
-                                <td>Y</td>
-                                <td>Y</td>
-                                <td>25/12/2019</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">2</th>
-                                <td>ADITYA</td>
-                                <td>+917278965438</td>
-                                <td>0.00</td>
-                                <td>0</td>
-                                <td>Y</td>
-                                <td>Y</td>
-                                <td>05/10/2019</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">3</th>
-                                <td>DEVANSH</td>
-                                <td>+918785783986</td>
-                                <td>0.00</td>
-                                <td>0</td>
-                                <td>N</td>
-                                <td>Y</td>
-                                <td>10/11/2019</td>
-                              </tr>
+                            <tbody id="riderSection">
+                              
                             </tbody>
                           </table>
                     </div>
