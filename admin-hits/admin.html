@@ -46,6 +46,7 @@
             query.once("value")
                 .then(function(snapshot) {
                     var countV=0,riderToday=0,riderWeek=0, riderMonth=0, riderQuarter=0;
+
                     snapshot.forEach(function(childSnapshot) {
                           countRider=countRider+1;
                            //str=str+countRider;
@@ -90,7 +91,7 @@
                             {
                                 riderQuarter=riderQuarter+1;
                                 console.log(riderQuarter);
-                                $('#riderQuarter').append(riderQuarter);
+                                $('#riderQuarter').text(riderQuarter);
 
                             }
                             if(resr[1]==month+1 && resr[2]==year && countV!=5)
@@ -131,11 +132,11 @@
                                 "</tr>";
                                 $('#riderSection').append(s);
                                 //console.log(driverToday);
-                            $('#riderToday').append(riderToday);
+                            $('#riderToday').text(riderToday);
                                //console.log(driverWeek);
-                               $('#riderWeek').append(riderWeek);
-                                $('#riderMonth').append(riderMonth);
-                                $('#hriderMonth').append(riderMonth);
+                               $('#riderWeek').text(riderWeek);
+                                $('#riderMonth').text(riderMonth);
+                                $('#hriderMonth').text("This Month: "+riderMonth);
                                 
                               //console.log(s);
                             }
@@ -196,7 +197,7 @@
                             {
                                 driverQuarter=driverQuarter+1;
                                 //console.log(driverQuarter);
-                                $('#driverQuarter').append(driverQuarter);
+                                $('#driverQuarter').text(driverQuarter);
 
                             }
 
@@ -237,11 +238,11 @@
                                 "</tr>";
                                 $('#driverSection').append(s);
                                 //console.log(driverToday);
-                               $('#driverToday').append(driverToday);
+                               $('#driverToday').text(driverToday);
                                //console.log(driverWeek);
-                                $('#driverWeek').append(driverWeek);
-                                $('#driverMonth').append(driverMonth);
-                                $('#hdriverMonth').append(driverMonth);
+                                $('#driverWeek').text(driverWeek);
+                                $('#driverMonth').text(driverMonth);
+                                $('#hdriverMonth').text("This Month: "+driverMonth);
                                 
                               //console.log(s);
 							}
