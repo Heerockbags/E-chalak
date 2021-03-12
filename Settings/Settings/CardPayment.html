@@ -1,0 +1,254 @@
+<html>
+    <head>
+        <title>
+            Settings
+        </title>
+        <link rel="stylesheet" href="tempCSS.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
+    </head>
+    <body>
+      <!--Heading-->
+        <div class="headContent" >
+            <div class="panelContainer">
+                <div class="adminPart">
+                    <h2> Manage Card Payment Methods </h2>
+                    
+
+                 
+                      <nav aria-label="breadcrumb" class="breadClass">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Card Payment Methods</li>
+                        </ol>
+                      </nav>
+                </div>
+
+
+  <br>
+  <br>
+
+                <br>
+                <input type="radio" style="margin-bottom: 30px; margin-left: 5px;"><b>&nbsp &nbsp Card Payment Methods List</b>
+             
+
+             <!--Add Admin User -->
+
+             <div class="modal" id="action">
+                <div class="modal-content">
+                    <div class="">
+
+                        <span onclick="document.getElementById('action').style.display='none'" role="button"
+                            class="close">&times;</span>
+                        <br>
+
+                        <h3 style="margin-left:20px ;"><b>Card Payment Method Setup</b></h3>
+                        <div class="borderForm">
+                            <form onsubmit="return validateForm()">
+
+                              <div class="container-form">
+                                
+                                  <label for="fname"><b>Payment Method Name*</b></label>
+                                  <input type="text" placeholder="" name="uname" style="width: 250px;" required>
+                                  <br>
+                                  <br>
+                                  <label for="body" style="vertical-align: top;"><b>Details*</b></label>
+                                    <textarea rows="4" cols="50" name="comment" form="usrform" style="border: solid 1px grey;">
+                                         
+                                    </textarea>
+                                    
+                                    <label for="Status" ><b>Status*</b></label>
+                                    <select name="Stats" id="Stats" style="width: 250px;">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                      </select>
+
+                                    <script type="text/javascript">
+                                        CKEDITOR.replace( 'articleContent' );
+                                      </script>
+                                    <br>
+                                    <br>
+                                   
+
+
+                                    <button class="btn btn-primary" type="submit">Save Changes</button>
+
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+           <!----Settings--->
+            <div class="modal" id="Settings">
+                <div class="modal-content">
+                <div class="">
+                  
+                  <span onclick="document.getElementById('Settings').style.display='none'" role="button" class="close">&times;</span>
+                  <br>
+                  
+                 <h3 style="margin-left:20px ;"><b>Payment Method Settings </b></h3> 
+                 <div class="borderForm">
+                  <form >
+                
+                    <div class="container-form">
+
+                      
+                      <label for="pswNew"><b>Secret Key*</b></label>
+                      <input type="text" name="skey" style="width: 250px;" required>
+                      
+                      <br>
+                      <br>
+                
+                      <label for="pswConfirm"><b>Public Key*</b></label>
+                      <input type="text" name="pKey" style="width: 250px;" required>
+
+                      <br>
+                      <br>
+
+                      
+                      <label for="Status" ><b>Transaction Mode*</b></label>
+                                    <select name="mode" id="Stats" style="width: 250px;">
+                                        <option value="test">Test/Sandbox</option>
+                                        <option value="Live">Live</option>
+                                      </select>
+                
+                      <button class="btn btn-primary" type="submit" >Save Changes</button>
+                     
+                    </div>
+                
+                   
+                  </form>
+
+                 </div>
+
+                
+                </div>
+                </div>
+              </div>
+
+
+            <!--table listing-->
+            <div class="tablecontent">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">SR. NO</th>
+                          <th scope="col">PAYMENT METHOD</th>
+                          
+                          <th scope="col">STATUS</th>
+                          <th scope="col">ACTION</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>1</td>
+                              <td>Test faq category</td>
+                              
+                              <td><div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                <label class="form-check-label" for="flexSwitchCheckChecked"
+                                  ></label
+                                >
+                              </div></td>
+                              <td>
+                                <div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <button class="dropdown-item" type="button"
+                                            onclick="document.getElementById('action').style.display='block';">
+                                            Edit
+                                        </button>
+
+
+                                        <button class="dropdown-item" type="button"
+                                            onclick="document.getElementById('Settings').style.display='block';">
+                                            Settings
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+
+                          
+                              <script>
+                                $(".js-open-modal").click(function(){
+                                $(".box").addClass("visible");
+                              });
+                  
+                              $(".js-close-modal").click(function(){
+                                $(".box").removeClass("visible");
+                              });
+                  
+                              $(document).click(function(event) {
+                                
+                                if (!$(event.target).closest(".box,.js-open-modal").length) {
+                                  $("body").find(".box").removeClass("visible");
+                                }
+                              });
+                              </script>
+                  
+                              <!--AddAdminUser Action ChangePassword Script-->
+    <script>
+
+
+      var modal = document.getElementById('head1');
+      var action1 = document.getElementById('action');
+      var changePassword1 = document.getElementById('Settings');
+
+      window.onclick = function (event) {
+          if (event.target == modal || event.target == action1 || event.target == changePassword1) {
+              modal.style.display = "none";
+              action1.style.display = "none";
+              changePassword1.style.display = "none";
+          }
+      }
+  </script>
+  <script>
+      function deleteRating() {
+          confirm("Do you want to delete ?");
+      }
+  </script>
+
+  <!--AddAdminUser Action ChangePassword Script-->
+    <script>
+
+
+      var modal = document.getElementById('head1');
+      var action1 = document.getElementById('action');
+      var changePassword1 = document.getElementById('changePassword');
+
+      window.onclick = function (event) {
+          if (event.target == modal || event.target == action1 || event.target == changePassword1) {
+              modal.style.display = "none";
+              action1.style.display = "none";
+              changePassword1.style.display = "none";
+          }
+      }
+  </script>
+  <script>
+      function deleteRating() {
+          confirm("Do you want to delete ?");
+      }
+  </script>
+            <br>
+            <br>
+            
+    </body>
+</html>

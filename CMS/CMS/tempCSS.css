@@ -13,7 +13,7 @@
     margin-bottom: 40px;
     border-radius: 10px 10px 10px 10px;
     background-color:antiquewhite;
-    height: auto;
+    height: 1500px;
     
 }
 .panelContainer{
@@ -22,74 +22,6 @@
     border-radius: 10px 10px 0px 0px;
     border:1px solid black;
     background-color: yellowgreen;
-}
-
-a{
-    color:black !important;
-}
-.breadcrumb {
-
-
-    background-color: transparent !important;
-}
-.breadcrumb-item a{
-   
-    list-style: none !important;
-    text-decoration: none !important;
-
-}
-.adminPart{
-    padding:15px;
-}
-
-
-.tablecontent{
-    background-color:rgb(236, 193, 136);
-    height:500px;
-}
-
-
-/*BUTTON TOGGLE*/
-
-.slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
-
-
-
-
-  /*Direct Copied the CSS of CMS File*/
-
-
-  
-*{
-    padding: 0px;
-    margin:0px;
-}
-    body{
-    background-color:#cfdef0 !important;
-}
-.headContent{
-    margin-top: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 40px;
-    border-radius: 10px 10px 10px 10px;
-    background-color:rgb(241, 208, 165);
-    height: auto;
-    
-}
-.panelContainer{
-   
-    height:120px;
-    border-radius: 10px 10px 0px 0px;
-    border:1px solid black;
-    background-color: rgb(215, 241, 161);
 }
 
 a{

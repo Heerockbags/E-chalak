@@ -4,7 +4,7 @@
     margin:0px;
 }
     body{
-    background-color:#cfdef0 !important;
+    background-color:#659BDB !important;
 }
 .headContent{
     margin-top: 40px;
@@ -12,8 +12,8 @@
     margin-right: 10px;
     margin-bottom: 40px;
     border-radius: 10px 10px 10px 10px;
-    background-color:rgb(236, 230, 221);
-    height: auto;
+    background-color:antiquewhite;
+    height: 1500px;
     
 }
 .panelContainer{
@@ -21,7 +21,7 @@
     height:300px;
     border-radius: 10px 10px 0px 0px;
     border:1px solid black;
-    background-color: rgb(248, 166, 153);
+    background-color: yellowgreen;
 }
 li{
     margin: 10px;

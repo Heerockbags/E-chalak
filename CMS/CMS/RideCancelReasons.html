@@ -1,0 +1,295 @@
+<html>
+    <head>
+        <title>
+            Cms
+        </title>
+        <link rel="stylesheet" href="tempCSS.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+        
+    </head>
+    <body>
+      
+        <div class="headContent" >
+            <div class="panelContainer">
+                <div class="adminPart">
+                    <h2>Manage Rider Cancellation Reasons</h2>
+                    
+
+                 
+                      <nav aria-label="breadcrumb" class="breadClass">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Ride Cancel Reasons</li>
+                        </ol>
+                      </nav>
+                </div>
+<!-------Search Bar-->
+<form class="example" >
+  <input type="text" placeholder="Search.." name="search" class="js-open-modal">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<br>
+<br>
+
+<!-----filter-->
+<div class="box" id="filter">
+  <form>
+    <div class="container" >
+      <div class="text1">
+      <label for="keyword"><b>Keyword</b></label><br>
+      <input type="text" class="textInput" placeholder="Enter Keyword" name="Keyword">
+       
+        <label for="Applicable for"><b>Applicable For</b></label><br>
+                    <select id="Approval">
+                      <option value="DNT">Does not matter</option>
+                      <option value="Admin">Admin</option>
+                      <option value="Driver">Driver</option>
+                      <option value="Rider">Rider</option>
+                    </select>
+       
+        <label for="status"><b>Status</b></label><br>
+                    <select id="status">
+                      <option value="DNT">Does not matter</option>
+                      <option value="Active">Active</option>
+                      <option value="In-Active">In-Active</option>
+                    </select>
+                <button type="submit" class="searchbtn">SEARCH</button>
+            <button type="submit" class="clearbtn">CLEAR SEARCH</button>
+          </div>
+    </div>
+  </form>
+</div>
+ 
+  <br>
+  <br>
+
+                <br>
+                <input type="radio" style="margin-bottom: 30px; margin-left: 5px;"><b>Ride Cancellation Listing</b>
+                <a onclick="document.getElementById('head1').style.display='block';" class="btn btn-light "
+                    style="float:right;margin-right:20px;" href="#" role="button">
+                    <span style="float:right;margin-right:25px;"> + Add Reason</span>
+                  </a>
+                <br>
+                <!--Change Password-->
+
+            <div class="modal" id="head1">
+              <div class="modal-content">
+                  <div class="">
+
+                      <span onclick="document.getElementById('head1').style.display='none'" role="button"
+                          class="close">&times;</span>
+                      <br>
+
+                      <h3 style="margin-left:20px ;"><b>Ride Cancel Reason Setup</b></h3>
+                      <div class="borderForm">
+                          <form onsubmit="return validateForm()">
+
+                              <div class="container-form">
+                               
+                                <br>
+                                
+                                  <label for="fname"><b>Title*</b></label>
+                                  <input type="text" placeholder="" name="uname" style="width: 250px;" required>
+                                  <br>
+                                  
+                                  <label for="Applicablefor" ><b>Applicable For*</b></label>
+                                <select name="Applicablefor" id="Applicablefor" style="width: 250px;">
+                                    <option value="admin">Admin</option>
+                                    <option value="rider">Rider</option>
+                                    <option value="driver">Driver</option>
+                                    
+                                </select>
+                                <label for="chargecancellationfees" ><b>Charge Cancellation Fees*</b></label>
+                                <select name="chargecancellationfees" id="chargecancellationfees" style="width: 250px;">
+                                    <option value="yes">yes</option>
+                                    <option value="No">No</option>
+                                  </select>
+                                    
+        
+                                
+                                <label for="commentsapplicable" ><b>Comments Applicable*</b></label>
+                                <select name="commentsapplicable" id="commentsapplicable" style="width: 250px;">
+                                    <option value="yes">yes</option>
+                                    <option value="No">No</option>
+                                  </select>
+
+                                  <label for="Status" ><b>Status*</b></label>
+                                <select name="Stats" id="Stats" style="width: 250px;">
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                  </select>
+                                
+                                 
+                                  <button class="btn btn-primary" type="submit" onclick="matchPasword()">Save
+                                      Changes</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+           <!--Add Admin User -->
+
+           <div class="modal" id="action">
+              <div class="modal-content">
+                  <div class="">
+
+                      <span onclick="document.getElementById('action').style.display='none'" role="button"
+                          class="close">&times;</span>
+                      <br>
+
+                      <h3 style="margin-left:20px ;"><b>Ride Cancel Reason Setup</b></h3>
+                      <div class="borderForm">
+                          <form onsubmit="return validateForm()">
+
+                              <div class="container-form">
+                               
+                                <br>
+                                
+                                  <label for="fname"><b>Title*</b></label>
+                                  <input type="text" placeholder="" name="uname" style="width: 250px;" required>
+                                  <br>
+                                  
+                                  <label for="Applicablefor" ><b>Applicable For*</b></label>
+                                <select name="Applicablefor" id="Applicablefor" style="width: 250px;">
+                                    <option value="admin">Admin</option>
+                                    <option value="rider">Rider</option>
+                                    <option value="driver">Driver</option>
+                                    
+                                </select>
+                                <label for="chargecancellationfees" ><b>Charge Cancellation Fees*</b></label>
+                                <select name="chargecancellationfees" id="chargecancellationfees" style="width: 250px;">
+                                    <option value="yes">yes</option>
+                                    <option value="No">No</option>
+                                  </select>
+                                    
+        
+                                
+                                <label for="commentsapplicable" ><b>Comments Applicable*</b></label>
+                                <select name="commentsapplicable" id="commentsapplicable" style="width: 250px;">
+                                    <option value="yes">yes</option>
+                                    <option value="No">No</option>
+                                  </select>
+
+                                  <label for="Status" ><b>Status*</b></label>
+                                <select name="Stats" id="Stats" style="width: 250px;">
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                  </select>
+                                
+                                   
+                                    
+                                
+                                 
+                                  <button class="btn btn-primary" type="submit" onclick="matchPasword()">Save
+                                      Changes</button>
+
+                              </div>
+
+
+                          </form>
+
+                      </div>
+
+
+                  </div>
+              </div>
+          </div>
+
+
+                <div class="tablecontent">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">Sr.No</th>
+                              <th scope="col">Title</th>
+                              <th scope="col">Applicable for</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">Action</th>
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>1</td>
+                                  <td>Cancelled by Rider1</td>
+                                  <td>Driver</td>
+                                  <td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                  <td>
+                                    <div class="dropdown bg-transparent">
+                                        <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            ---
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <button class="dropdown-item" type="button"
+                                                onclick="document.getElementById('action').style.display='block';">
+                                                Edit
+                                            </button>
+    
+                                            <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                              </tr>
+
+                              
+
+                              
+                               <!--Search Bar Script-->
+    <script>
+      $(".js-open-modal").click(function () {
+          $(".box").addClass("visible");
+      });
+
+      $(".js-close-modal").click(function () {
+          $(".box").removeClass("visible");
+      });
+
+      $(document).click(function (event) {
+
+          if (!$(event.target).closest(".box,.js-open-modal").length) {
+              $("body").find(".box").removeClass("visible");
+          }
+      });
+  </script>
+
+  <!--AddAdminUser Action ChangePassword Script-->
+  <script>
+
+
+      var modal = document.getElementById('head1');
+      var action1 = document.getElementById('action');
+      var changePassword1 = document.getElementById('changePassword');
+
+      window.onclick = function (event) {
+          if (event.target == modal || event.target == action1 || event.target == changePassword1) {
+              modal.style.display = "none";
+              action1.style.display = "none";
+              changePassword1.style.display = "none";
+          }
+      }
+  </script>
+  <script>
+      function deleteRating() {
+          confirm("Do you want to delete ?");
+      }
+                  </script>
+                              
+                                          
+          
+             </body>
+</html>

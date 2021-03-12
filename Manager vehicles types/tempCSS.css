@@ -13,7 +13,7 @@
     margin-bottom: 40px;
     border-radius: 10px 10px 10px 10px;
     background-color:antiquewhite;
-    height: auto;
+    height: 1500px;
     
 }
 .panelContainer{
@@ -45,88 +45,12 @@ a{
 
 .tablecontent{
     background-color:rgb(236, 193, 136);
-    height:500px;
 }
 
 
 /*BUTTON TOGGLE*/
 
-.slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
-
-
-
-
-  /*Direct Copied the CSS of CMS File*/
-
-
-  
-*{
-    padding: 0px;
-    margin:0px;
-}
-    body{
-    background-color:#cfdef0 !important;
-}
-.headContent{
-    margin-top: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 40px;
-    border-radius: 10px 10px 10px 10px;
-    background-color:rgb(241, 208, 165);
-    height: auto;
-    
-}
-.panelContainer{
-   
-    height:120px;
-    border-radius: 10px 10px 0px 0px;
-    border:1px solid black;
-    background-color: rgb(215, 241, 161);
-}
-
-a{
-    color:black !important;
-}
-.breadcrumb {
-
-
-    background-color: transparent !important;
-}
-.breadcrumb-item a{
-   
-    list-style: none !important;
-    text-decoration: none !important;
-
-}
-.adminPart{
-    padding:15px;
-}
-
-
-.tablecontent{
-    background-color:rgb(236, 193, 136);
-    height:500px;
-}
-
-
-/*BUTTON TOGGLE*/
-
-.slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  .form-check-input {
+.form-check-input {
     background-color:cornsilk;
     border-color: #0d6efd;
     margin-left: -10px !important;
@@ -191,7 +115,7 @@ a{
       .container-form label {
           margin-left: 376px;
           margin-top: 10px;
-          width:200px;
+          width:180px;
 
       }
 
@@ -212,7 +136,7 @@ form.example input[type=text] {
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 81%;
+    width: 80%;
     background: #f1f1f1;
   }
   
@@ -259,8 +183,8 @@ form.example input[type=text] {
   /* Full-width input fields */
     .textInput, #Approval, #status {
     width: 100%;
-  padding: 5px;
-  margin: 0px 5px 22px 5px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
   background: #f1f1f1
@@ -268,7 +192,7 @@ form.example input[type=text] {
   .text1, .text2
   {
     margin: auto;
-    margin-top: 10px; width:100%; padding-right:30px;
+    margin-top: 10px;
   }
 
   input[type=text]:focus, input[type=password] input[type=date], #Approval, #status:focus {
@@ -278,13 +202,23 @@ form.example input[type=text] {
   
 
   
+  /*Rider Rating */
+  
+  .container2
+  
+  {
+    padding: 17px;
+    /* width: 98%; */
+    margin: 1px 101px 0px 89px;
+    background-color: white;
 
+  }
   .searchbtn
   {
     background-color: #4CAF50;
     color: white;
-    padding: 5px 20px;
-    margin-top: 15px;
+    padding: 16px 20px;
+    margin: 8px 0;
     border: none;
     cursor: pointer;
     opacity: 0.9;
@@ -293,8 +227,8 @@ form.example input[type=text] {
   {
     background-color: #4CAF50;
     color: white;
-    padding: 6px 20px;
-    margin-top: 15px;
+    padding: 16px 20px;
+    margin: 8px 0;
     border: none;
     cursor: pointer;
     opacity: 0.9;
@@ -302,3 +236,4 @@ form.example input[type=text] {
   
 
   /*Table td not in Center in Rider Rating*/
+ 

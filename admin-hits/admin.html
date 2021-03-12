@@ -4,6 +4,7 @@
             E-Chalak Dashboard
         </title>
         <link rel="stylesheet" href="adminCSS.css">
+        <link rel="stylesheet" href="navbarCSS.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -265,8 +266,126 @@
     <body onload="defaultFun()">
 
         <div class="headContent" >
+          
             <div class="panelContainer">
+              <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#about">Dashboard</a>
+        
+                <a href="#services">Manage Admin Users</a>
+        
+                <button class="dropdown-btn">Manage Users
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-container">
+                  <a href="#">Manage Riders</a>
+                  <a href="#">Manage Drivers</a>
+         
+                </div>
+        
+                <button class="dropdown-btn">Manage Rides
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Ride Requests</a>
+                    <a href="#">Customer Rides</a>
+                    <a href="#">Ride Complaints</a>
+                  </div>
+        
+                  <button class="dropdown-btn">Ride Ratings
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Rider Ratings</a>
+                    <a href="#">Driver Ratings</a>
+        
+                  </div>
+        
+                  <button class="dropdown-btn">Manage Vehicles/Taxis
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Vehicles/taxis Types</a>
+                    <a href="#">Registered Cabs</a>
+                    <a href="#">Car Makes</a>
+                    <a href="#">Car Models</a>
+                  </div>
+        
+        
+                  <a href="#services">Manage Withdrawal Requests</a>
+        
+                  <a href="#services">Manage Discount Coupons</a>
+        
+        
+                  <button class="dropdown-btn">Stats On Map
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Ride Stats</a>
+                    <a href="#">Driver Availability Stats</a>
+         
+                  </div>
+        
+                  <button class="dropdown-btn">Settings
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                  </div>
+        
+                  <button class="dropdown-btn">Localizations
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Manage Countries</a>
+                    <a href="#">Manage States</a>
+                    <a href="#">Geo Fence Locations</a>
+                  </div>
+        
+                  <button class="dropdown-btn">CMS
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Ride Cancel Reasons</a>
+                    <a href="#">Cms Pages</a>
+                    <a href="#">Push Notifications</a>
+                  </div>
+        
+        
+                  <button class="dropdown-btn">Reports
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-container">
+                    <a href="#">Riders</a>
+                    <a href="#">Drivers</a>
+                    <a href="#">Commissions</a>
+                    <a href="#">TAX</a>
+        
+                  </div>
+        
+        
+        
+          </div>
+        <div class="main">
+        
+        <!--Till here^^^ above the comment  and paste before <DIV CLASS="HEADCONTENT>"-->
+        
+        
+        
+        
+        <!--past this SPAN STYLE after the <DIV CLASS="ADMINPART> "-->
+        <span style="font-size:17px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            
+        
+        
+        
+        
+                </div>
+            
                 <div class="container ">
+                 
                     <div class="row panelRow" >
                         <div class="col-md-3 panelColumn" style="border:1px solid black;">
                             <a href="Manage Riders.html" style="color: black; text-decoration: none;"><h1>New Riders</h1></a>
@@ -500,8 +619,43 @@
         
                 </div>
             </div>
-        </div>
-
+         <!--  <scripts>  -->
+            
+          <script>
+                    
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+            
+            for (i = 0; i < dropdown.length; i++) {
+              dropdown[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var dropdownContent = this.nextElementSibling;
+              if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+              } else {
+              dropdownContent.style.display = "block";
+              }
+              });
+            }
+            
+              function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "black";
+              }
+    
+    
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "black";
+              }
+    </script>
+          
+    <!--  </scripts>   -->
+    
+    
+   
         <script src="main.js"></script>
 
 

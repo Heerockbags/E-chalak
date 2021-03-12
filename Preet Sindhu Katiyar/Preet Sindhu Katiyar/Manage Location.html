@@ -1,0 +1,1618 @@
+<html>
+    <head>
+        <title>
+            Manage Location
+        </title>
+        <link rel="stylesheet" href="tempcss3.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+        
+    </head>
+    <body>
+     
+
+      
+        <div class="headContent" >                                 
+            <div class="panelContainer">
+                  <div class="adminPart">
+                      <h2> Manage Location</h2>
+                      <nav aria-label="breadcrumb" class="breadClass">
+                          <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Locations</li>
+                          </ol>
+                        </nav>
+                  </div>
+
+                   <!-------Search Bar-->
+               <form class="example" >
+                <input type="text" placeholder="Search.." name="search" class="js-open-modal">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+              <br>
+              <br>
+
+              <!-----filter-->
+              <div class="box" id="filter">
+                <form>
+                  <div class="container" >
+        
+                    <hr>
+                    <div class="text1">
+                    <label for="keyword"><b>Keyword</b></label><br>
+                    <input type="text" class="textInput" placeholder="Enter Keyword" name="email" id="email" required>
+ <label for="uname"><b>Country</b></label>
+
+<select id="country" name="country">
+    <option>select country</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Aland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, the Democratic Republic of the</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Cote D'Ivoire</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CW">Curacao</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GG">Guernsey</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard Island and Mcdonald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran, Islamic Republic of</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IM">Isle of Man</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JE">Jersey</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People"s Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="XK">Kosovo</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libyan Arab Jamahiriya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macao</option>
+    <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="ME">Montenegro</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="AN">Netherlands Antilles</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestinian Territory, Occupied</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Reunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="BL">Saint Barthelemy</option>
+    <option value="SH">Saint Helena</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint Lucia</option>
+    <option value="MF">Saint Martin</option>
+    <option value="PM">Saint Pierre and Miquelon</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="CS">Serbia and Montenegro</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SX">Sint Maarten</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="SS">South Sudan</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan, Province of China</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TL">Timor-Leste</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands, British</option>
+    <option value="VI">Virgin Islands, U.s.</option>
+    <option value="WF">Wallis and Futuna</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+</select>
+
+<br>
+<br>
+                    <label for="status"><b>STATUS</b></label><br>
+                    <select id="status">
+                      <option value="DNT">Does not matter</option>
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+              
+
+                    
+                  </div>
+
+                   <div class="text2">
+                    </select>
+                    <b><button type="submit" class="searchbtn">SEARCH</button></b>
+                    <button type="submit" class="clearbtn">CLEAR SEARCH</button>
+                  </div>
+                  
+                  </div>
+                </form>
+              </div>
+               
+                <br>
+                <br>
+
+                <div class="textHeading">
+                  <h3 style="margin-left:5px;"><b>Locations Listing</b> 
+                     <a onclick="document.getElementById('head1').style.display='block';"class="btn btn-light " style="float:right;margin-right:20px;"href="#" role="button">
+                       <span style="float:right;margin-right:25px;">  Add  Locations</span>
+                      </a>
+                    </h3>
+                </div>
+
+                <!--Change Password-->
+
+                <div class="modal" id="head1">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('head1').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                   <h3 style="margin-left:20px ;"><b>Location Setup</b></h3> 
+                   <div class="borderForm">
+                    <form onsubmit ="return validateForm()">
+                  
+                      <div class="container-form">
+
+                        
+<label for="fname"><b>Location Name*</b></label>
+                        <input type="text" placeholder="" name="uname" required>
+                        <br>
+               </br> 
+               <label for="uname"><b>Country</b></label>
+<select id="country" name="country">
+    <option>select country</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Aland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, the Democratic Republic of the</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Cote D'Ivoire</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CW">Curacao</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GG">Guernsey</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard Island and Mcdonald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran, Islamic Republic of</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IM">Isle of Man</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JE">Jersey</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People"s Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="XK">Kosovo</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libyan Arab Jamahiriya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macao</option>
+    <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="ME">Montenegro</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="AN">Netherlands Antilles</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestinian Territory, Occupied</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Reunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="BL">Saint Barthelemy</option>
+    <option value="SH">Saint Helena</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint Lucia</option>
+    <option value="MF">Saint Martin</option>
+    <option value="PM">Saint Pierre and Miquelon</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="CS">Serbia and Montenegro</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SX">Sint Maarten</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="SS">South Sudan</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan, Province of China</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TL">Timor-Leste</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands, British</option>
+    <option value="VI">Virgin Islands, U.s.</option>
+    <option value="WF">Wallis and Futuna</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+</select>
+
+                        <br >
+<br>
+<label for="stats"><b>Status</b></label>
+                        <select name="stats" id="statsId">
+                          <option value="active">Active</option>
+                          <option value="inactive">In-active</option>
+                         
+                        </select>
+                        
+                  
+                  
+                        <button class="btn btn-primary" type="submit" onclick="matchPasword()">Save Changes</button>
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+                <!--Add  State-->
+
+<div id ="facebox" style="top:163.5px;left;204.5px;">
+<div class="popup">
+<div class="content fbminwidth" style ="max-height; 485 px;overflow-y; scroll;display;block;">
+<section class="section">
+<div class ="sectionhead"></div>
+<div class ="sectionbody space">
+<div class ="row">
+<div class ="col -sm -12">
+<div class ="tabs_nav_conatiner responive flat">
+
+                                    
+ 
+<!--Change Password-->
+
+                <div class="modal" id="changePassword">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('changePassword').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                   <h3 style="margin-left:20px ;"><b>Admin User Change Password ( Navneet Ojha) </b></h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        
+                        <label for="pswNew"><b>New Password*</b></label>
+                        <input type="password" name="pswNew" required>
+                        
+                        <br>
+                        <br>
+                  
+                        <label for="pswConfirm"><b>Confirm Password*</b></label>
+                        <input type="password" name="pswConfirm" required>
+
+                        <br>
+                        <br>
+                  
+                        <button class="btn btn-primary" type="submit" >Save Changes</button>
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+
+                
+     
+              <div class="tablecontent">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">SR.NO</th>
+                              <th scope="col">LOCATION</th>
+                              <th scope="col">COUNTRY</th>
+                              <th scope="col">TYPE</th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              
+<div class="modal" id="action">
+                <div class="modal-content">
+                    <div class="">
+
+                        <span onclick="document.getElementById('action').style.display='none'" role="button"
+                            class="close">&times;</span>
+                        <br>
+
+                        <h3 style="margin-left:20px ;"><b>Locations Setup</b></h3>
+                        <div class="borderForm">
+                            <form onsubmit="return validateForm()">
+
+                                <div class="container-form">
+
+
+<label for="uname"><b>Location Name*</b></label>
+                                    <input type="text" placeholder="" name="uname" required>
+
+<br>
+<br>
+<label for="uname"><b>Country</b></label>
+<select id="country" name="country">
+    <option>select country</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AX">Aland Islands</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua and Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+    <option value="BA">Bosnia and Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BV">Bouvet Island</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="BN">Brunei Darussalam</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo</option>
+    <option value="CD">Congo, the Democratic Republic of the</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Cote D'Ivoire</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CW">Curacao</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czech Republic</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands (Malvinas)</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="TF">French Southern Territories</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GG">Guernsey</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HM">Heard Island and Mcdonald Islands</option>
+    <option value="VA">Holy See (Vatican City State)</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran, Islamic Republic of</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IM">Isle of Man</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JE">Jersey</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KP">Korea, Democratic People"s Republic of</option>
+    <option value="KR">Korea, Republic of</option>
+    <option value="XK">Kosovo</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Lao People's Democratic Republic</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libyan Arab Jamahiriya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macao</option>
+    <option value="MK">Macedonia, the Former Yugoslav Republic of</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia, Federated States of</option>
+    <option value="MD">Moldova, Republic of</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="ME">Montenegro</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="AN">Netherlands Antilles</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestinian Territory, Occupied</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PN">Pitcairn</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Reunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russian Federation</option>
+    <option value="RW">Rwanda</option>
+    <option value="BL">Saint Barthelemy</option>
+    <option value="SH">Saint Helena</option>
+    <option value="KN">Saint Kitts and Nevis</option>
+    <option value="LC">Saint Lucia</option>
+    <option value="MF">Saint Martin</option>
+    <option value="PM">Saint Pierre and Miquelon</option>
+    <option value="VC">Saint Vincent and the Grenadines</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">Sao Tome and Principe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="CS">Serbia and Montenegro</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SX">Sint Maarten</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia and the South Sandwich Islands</option>
+    <option value="SS">South Sudan</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard and Jan Mayen</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syrian Arab Republic</option>
+    <option value="TW">Taiwan, Province of China</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania, United Republic of</option>
+    <option value="TH">Thailand</option>
+    <option value="TL">Timor-Leste</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad and Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks and Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UM">United States Minor Outlying Islands</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Viet Nam</option>
+    <option value="VG">Virgin Islands, British</option>
+    <option value="VI">Virgin Islands, U.s.</option>
+    <option value="WF">Wallis and Futuna</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
+</select>
+<br>
+<br>                       
+ <label for="stats"><b>Status</b></label>
+                        <select name="stats" id="statsId">
+                          <option value="active">Active</option>
+                          <option value="inactive">In-active</option>
+                         
+                        </select>
+<br>
+<br>
+
+<button class="btn btn-primary" type="submit" >Save Changes</button>
+</div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+<tr>
+                                <td>1</td>
+                                <td>DELHI - NCR</td>
+                                <td>India</td>
+                                <td>Vehicle Type</td>
+
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+  
+                          </thead>
+                          <tbody>
+                                    <tr>
+                                <td>2</td>
+                                <td>Chandigarh</td>
+                                <td>India</td>
+                                <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+      <tr>
+                                <td>3</td>
+                                <td>San Antonio, TX, USA</td>
+                                <td>United States</td>
+                                <td>Vehicle Type</td>
+                         
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+</tbody>
+      <tr>
+                                <td>4</td>
+                                <td>Yamuna Nagar</td>
+                                <td>India</td>
+                                      <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+</tbody>
+      <tr>
+                                <td>5</td>
+                                <td>Lexington, KY, USA</td>
+                                <td>United States</td>
+                                     <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+          <tr>
+                                <td>6</td>
+                                <td>Bogota</td>
+                                <td>Colombia</td>
+                                  <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>7</td>
+                                <td>Panakudi</td>
+                                <td>India</td>
+                                     <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>8</td>
+                                <td>Baghdad, Iraq</td>
+                                <td>Iraq</td>
+                            <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                      <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>9</td>
+                                <td>Mohali, Punjab, India</td>
+                                <td>India</td>
+                                <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                   <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>10</td>
+                                <td>Chennai, Tamil Nadu, India</td>
+                                <td>India</td>
+                                <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                 <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>11</td>
+                                <td>Berlin</td>
+                                <td>Germany</td>
+                        <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>12</td>
+                                <td>Mumbai, Maharashtra, India</td>
+                                <td>India</td>
+                                      <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+  <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>13</td>
+                                <td>Firozpur, Punjab, India</td>
+                                <td>India</td>
+                                  <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                      <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>14</td>
+                                <td>Mohali, Punjab, India</td>
+                                <td>India</td>
+                                    <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                             <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>15</td>
+                                <td>Chandigarh, India</td>
+                                <td>India</td>
+                                   <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                    <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>16</td>
+                                <td>KHARAGPUR</td>
+                                <td>India</td>
+                                    <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                               <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>17</td>
+                                <td>Mohali, Punjab, India</td>
+                                <td>India</td>
+                                          <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                     <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+          <tr>
+                                <td>18</td>
+                                <td>Mohali, Punjab, India</td>
+                                <td>India</td>
+                              <td>Vehicle Type</td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label
+                                    >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                    <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+
+                    </table>
+
+                </div>
+
+                  
+            </div>
+    </div>
+            <br>
+            <br>
+
+
+         <!--Search Bar Script-->
+    <script>
+        $(".js-open-modal").click(function () {
+            $(".box").addClass("visible");
+        });
+
+        $(".js-close-modal").click(function () {
+            $(".box").removeClass("visible");
+        });
+
+        $(document).click(function (event) {
+
+            if (!$(event.target).closest(".box,.js-open-modal").length) {
+                $("body").find(".box").removeClass("visible");
+            }
+        });
+    </script>
+
+    <!--AddAdminUser Action ChangePassword Script-->
+    <script>
+
+
+        var modal = document.getElementById('head1');
+        var action1 = document.getElementById('action');
+        var changePassword1 = document.getElementById('changePassword');
+
+        window.onclick = function (event) {
+            if (event.target == modal || event.target == action1 || event.target == changePassword1) {
+                modal.style.display = "none";
+                action1.style.display = "none";
+                changePassword1.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        function deleteRating() {
+            confirm("Do you want to delete ?");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,402 @@
+<html>
+    <head>
+        <title>
+            Manage Admin Users
+        </title>
+        <link rel="stylesheet" href="tempCSS.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+        
+    </head>
+    <body>
+     
+
+      
+        <div class="headContent" >
+            <div class="panelContainer">
+                  <div class="adminPart">
+                      <h2> Discount Coupon </h2>
+                      <nav aria-label="breadcrumb" class="breadClass">
+                          <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Discount Coupon</li>
+                          </ol>
+                        </nav>
+                  </div>
+
+                   <!-------Search Bar-->
+               <form class="example" >
+                <input type="text" placeholder="Search.." name="search" class="js-open-modal">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+              <br>
+              <br>
+
+              <!-----filter-->
+               <div class="box" id="filter">
+                <form>
+                    <div class="container">
+
+                        <hr>
+                        <div class="text1">
+                            <label for="keyword"><b>Keyword</b></label><br>
+                            <input type="text" class="textInput" placeholder="Enter Keyword" name="email" id="email"
+                                required>
+                        </div>
+
+                        <div class="text2">
+                            <label for="status"><b>STATUS</b></label><br>
+                            <select id="status">
+                                <option value="DNT">Does not matter</option>
+                                <option value="Yes">Active</option>
+                                <option value="No">In-Active</option>
+                            </select>
+
+                            <button type="submit" class="searchbtn">SEARCH</button>
+                            <button type="submit" class="clearbtn">CLEAR SEARCH</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <br>
+
+                <div class="textHeading">
+                  <h3 style="margin-left:3px;"><b>Discount User Listing</b> 
+                     <a onclick="document.getElementById('head1').style.display='block';"class="btn btn-light " style="float:right;margin-right:20px;"href="#" role="button">
+                       <span style="float:right;margin-right:25px;">  Add  Coupon</span>
+                      </a>
+                    </h3>
+                </div>
+
+                <!--Change Password-->
+
+                <div class="modal" id="head1">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('head1').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                   <h3 style="margin-left:20px ;"><b>Discount User Setup</b></h3> 
+                   <div class="borderForm">
+                    <form onsubmit ="return validateForm()">
+                  
+                      <div class="container-form">
+
+                        
+ <label for="fname"><b>Coupon Name*</b></label>
+                        <input type="text" placeholder="" name="uname" required>
+                        <br>
+                        <br>
+<label  for = "fname"> <b>Discription /terms*</b></label>
+                 <textarea title =""  data-fatreq={"required":false}" name="coupon_discription">
+                  </textarea>
+                       <br>
+                       <br>
+                  
+<label for="uname"><b>Discount In</b></label>
+                           <select id="uname">
+                                <option value="DNT">Percentage</option>
+                                <option value="Yes">Flat</option>
+                            </select>
+                        <br>
+                        <br>
+ <label for="discount value "><b>discount value*</b></label>
+                        <input type=" number" name="number" required>
+
+                        <br>
+                        <br>
+                    <label for=""><b>Min Ride Value**</b></label>
+                        <input type="text" placeholder="" number="uname" required>
+                        <br>
+                        <br>
+  <label for="fname"><b>Max Discount Value**</b></label>
+                        <input type="number" placeholder="" number="number" required>
+                        <br>
+                        <br>
+  <label for="fname"><b>Date from*</b></label>
+                       <input type="datetime-local" id="" name="">
+                        <br>
+                        <br>
+                  
+  <label for="fname"><b>Date to*</b></label>
+                        <input type="datetime-local" id="" name="">
+                        <br>
+                        <br>
+                        <label for="Uses Per Coupon "><b>Uses Per Coupon*</b></label>
+                        <input type="password" name="psw" required>
+                        
+                        <br>
+                        <br>
+                  
+                        <label for="U"><b>Uses Per Customer*</b></label>
+                        <input type="" name="" required>
+
+                        <br>
+                        <br>
+                  
+
+                        <label for="stats"><b>Status</b></label>
+                        <select name="stats" id="statsId">
+                          <option value="active">Active</option>
+                          <option value="inactive">In-active</option>
+                         
+                        </select>
+                        
+                  
+                  
+                        <button class="btn btn-primary" type="submit" onclick="matchPasword()">Save Changes</button>
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+                <!--Add  Discount Coupon -->
+
+<div id ="facebox" style="top:163.5px;left;204.5px;">
+<div class="popup">
+<div class="content fbminwidth" style ="max-height; 485 px;overflow-y; scroll;display;block;">
+<section class="section">
+<div class ="sectionhead"></div>
+<div class ="sectionbody space">
+<div class ="row">
+<div class ="col -sm -12">
+<div class ="tabs_nav_conatiner responive flat">
+
+                                    
+ 
+<!--Change Password-->
+
+                <div class="modal" id="changePassword">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('changePassword').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                   <h3 style="margin-left:20px ;"><b>Admin User Change Password ( Navneet Ojha) </b></h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        
+                        <label for="pswNew"><b>New Password*</b></label>
+                        <input type="password" name="pswNew" required>
+                        
+                        <br>
+                        <br>
+                  
+                        <label for="pswConfirm"><b>Confirm Password*</b></label>
+                        <input type="password" name="pswConfirm" required>
+
+                        <br>
+                        <br>
+                  
+                        <button class="btn btn-primary" type="submit" >Save Changes</button>
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+
+                
+                
+
+
+                <br>
+                <!--Table Listing-->
+                <div class="tablecontent">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                              <th scope="col">SR.NO</th>
+                              <th scope="col">CODE</th>
+                              <th scope="col">DISCOUNT</th>
+                              <th scope="col">VALIDITY</th>
+                              <th scope="col"></th>
+                              <th scope="col">STATUS</th>
+                              <th scope="col">ACTION</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>NSOOUEDXGC</td>
+                                <td>100%</td>
+                                <td>12/01/2021 - 26/01/2021</td>
+                                <td></td>
+<td><div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"
+                                      ></label >
+                                  </div></td>
+                                <td><div class="dropdown bg-transparent">
+                                    <button class="btn " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      ---
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                      <button class="dropdown-item" type="button" 
+                                      onclick="document.getElementById('action').style.display='block';">
+                                      Edit
+                                    </button>
+
+                                      <button class="dropdown-item" type="button" onclick="deleteRating()">
+                                            Delete
+                                        </button>
+                                    </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+   
+                          </tbody>
+
+                    </table>
+
+                </div>
+
+                  
+            </div>
+    </div>
+            <br>
+            <br>
+
+<div class="modal" id="action">
+                <div class="modal-content">
+                    <div class="">
+
+                        <span onclick="document.getElementById('action').style.display='none'" role="button"
+                            class="close">&times;</span>
+                        <br>
+
+                        <h3 style="margin-left:20px ;"><b>Discount Coupon Setup</b></h3>
+                        <div class="borderForm">
+                            <form onsubmit="return validateForm()">
+
+                                <div class="container-form">
+
+                                    <label for="fname"><b>Coupon Code* </b></label>
+                                    <input type="text" placeholder="" name="uname" required>
+                                    
+<label for="uname"><b>Coupon Name*</b></label>
+                                    <input type="text" placeholder="" name="uname" required>
+
+ 
+<label  for = "fname"> <b>Discription /terms*</b></label>
+                 <textarea title =""  data-fatreq={"required":false}" name="coupon_discription">
+                  </textarea>
+<label for="stats"><b>Discount In</b></label>
+                                     <select name="stats" id="statsId">
+                                        <option value="Percentage">Active</option>
+                                        <option value="Flat">Flat</option>
+       </select>
+
+<label for="number"><b>Discount Value*</b></label>
+                                    <input type="number" name="number" required>
+                                    
+<label for="number"><b>Min Ride Value*</b></label>
+                                    <input type="number" name="number" required>
+                                    
+<label for="number"><b>Max Discount Value*</b></label>
+                                    <input type="number" name="number" required>
+                                    
+<label for="Date From"><b>Date From*</b></label>
+  <input type="datetime-local" id="" name="">
+
+
+<label for="Date To"> <b>Date To*</b></label>
+  <input type="datetime-local" id="" name="">
+
+<label for="number"><b>Uses Per Coupon*</b></label>
+                                    <input type="number" name="number" required>
+                                    
+<label for="number"><b>Uses Per Customer</b></label>
+                                    <input type="number" name="number" required>
+                                   
+ <label for="stats"><b>Status</b></label>
+                                    <select name="stats" id="statsId">
+                                        <option value="active">Active</option>
+                                        <option value="inactive">In-active</option>
+
+                                    </select>
+                                    <br>
+                                    <br>
+
+                                    <button class="btn btn-primary" type="submit">Save Changes</button>
+
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!--Search Bar Script-->
+            <script>
+              $(".js-open-modal").click(function(){
+              $(".box").addClass("visible");
+            });
+
+            $(".js-close-modal").click(function(){
+              $(".box").removeClass("visible");
+            });
+
+            $(document).click(function(event) {
+              
+              if (!$(event.target).closest(".box,.js-open-modal").length) {
+                $("body").find(".box").removeClass("visible");
+              }
+            });
+            </script>
+
+            <!--AddAdminUser Action ChangePassword Script-->
+            <script>
+
+              
+              var modal=document.getElementById('head1');
+              var action1=document.getElementById('action');
+              var changePassword1=document.getElementById('changePassword');
+              
+              window.onclick=function(event){
+                if(event.target == modal || event.target == action1 || event.target == changePassword1){
+                  modal.style.display="none";
+                  action1.style.display="none";
+                  changePassword1.style.display="none";
+                }
+              }
+            </script>
+<script>
+        function deleteRating() {
+            confirm("Do you want to delete ?");
+        }
+</script>
+    </body>
+</html>

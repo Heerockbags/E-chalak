@@ -1,0 +1,79 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    
+    left: 150px;
+    font-size: 30px;
+    color:red;
+    margin-left: 50px;
+  }
+  
+  
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(221, 212, 212);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color:black;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .sidenav a:hover{
+    color: red;
+  }
+  
+  .dropdown-btn:hover {
+    color: red;
+  }
+  
+  
+  .active {
+    background-color: #282828;
+    color: white;
+  }
+  
+  .dropdown-container {
+    display: none;
+    background-color: #eb5e71;
+    padding-left: 8px;
+  }
+  
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+  .main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
