@@ -98,7 +98,7 @@
                                     "<td>"+LiveV+"</td>"+
                                     "<td><p id='pp'>"+BannedV+"</p>"+
                                       "<div class='form-check form-switch'>"+
-                                      "<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault'  />"+
+                                      "<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault' onclick='Banned(this.UsernameV)'/>"+
                                       "<label class='form-check-label' for='flexSwitchCheckDefault'></label>"+
                                       "</div>"+
                                     "</td>"+
@@ -122,6 +122,11 @@
                     });
                 });
         
+    }
+    function Banned(x)
+    {
+      console.log(x);
+      document.getElementById("demo").innerHTML = this.BannedV;
     }
 	
     </script>
@@ -149,6 +154,7 @@
                
                 
                 <h3 style="margin-left:25px;">Driver Listing</h3>
+                <p id="demo"></p>
                 <br>
                 <div class="tablecontent">
                     <table class="table">

@@ -1,0 +1,17 @@
+
+note- there are two files in this, NAV1 file for nav bar, and the REFERENCE FILE, like if you have a doubt, you can check the reference file and PASTE the CODE SNIPPETS accordingly...
+Follow the steps please :D
+
+
+
+
+
+----> the numbers in the brackets () are the line of the particular tag in the NAV1 file ._.
+
+1. copy from <style> (9) to <div class="main"> (192)  and paste it before <div class="headContent" >{ for the HEAD CONTENT, check the reference file(203) }
+
+
+2. COpy the span tag (200) and paste it after <div class="adminPart"> { reference file(205) }\
+
+
+3. Copy from <script> (205) till </script>(234) and paste it after or before your PAGES'S OWN javaSCRIPT. Check reference file(320-350)are the nav bar scripts and the lines(358-372) are my scripts.
