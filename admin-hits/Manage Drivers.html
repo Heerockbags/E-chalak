@@ -98,7 +98,7 @@
                                     "<td>"+LiveV+"</td>"+
                                     "<td><p id='pp'>"+BannedV+"</p>"+
                                       "<div class='form-check form-switch'>"+
-                                      "<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault' onclick='Banned(this.UsernameV)'/>"+
+                                      `<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault' onclick='Banned("${hashV}")'/>`+
                                       "<label class='form-check-label' for='flexSwitchCheckDefault'></label>"+
                                       "</div>"+
                                     "</td>"+
@@ -113,7 +113,7 @@
                                       "</div>"+
                                     "</td>"+
                                 "</tr>";
-                                console.log(str);
+                                //console.log(str);
                                 $('#add').append(str);
                             //Commisiion / Commission / Commision
                             //document.write(str);
@@ -126,7 +126,29 @@
     function Banned(x)
     {
       console.log(x);
-      document.getElementById("demo").innerHTML = this.BannedV;
+      //var BanV;
+      //console.log(y);
+
+      document.getElementById("demo").innerHTML = x+" ";
+      /*firebase.database().ref("D2D driver/"+x+"/Information/").on('value',function(snapshot){
+        BanV = snapshot.val().Banned;
+        
+
+      });
+      //console.log(BanV);
+      if(BanV=="false")
+      {
+         firebase.database().ref("D2D driver/"+x+"/Information/").set({
+          Banned:"true"
+
+         });
+      }
+      else
+      {
+        firebase.database().ref("D2D driver/"+x+"/Information/").set({
+          Banned:"false"
+         });
+      }*/
     }
 	
     </script>

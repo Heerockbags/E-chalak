@@ -70,9 +70,10 @@
             var query = firebase.database().ref("Admin_User/");
             query.once("value")
                 .then(function(snapshot) {
-                    snapshot.forEach(function(childSnapshot) {
-                        
+                    snapshot.forEach(function(childSnapshot, key) {
+                        //key parameter
                         UsernameV = childSnapshot.key;
+                        //
                         firebase.database().ref("Admin_User/"+UsernameV).on('value',function(snapshot){
                           countV=countV+1;
 						  var NameV = snapshot.val().Admin_Name;
