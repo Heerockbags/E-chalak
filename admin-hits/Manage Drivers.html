@@ -39,11 +39,12 @@
         firebase.analytics();
                                
 //----------------------------Ready Data--------------------------------------------------------------------------//
- var hashV,infoV,AgeV,All_okayV,AllotedV,BannedV,CityV,CommisionV,DOJV,License_NoV,PhoneV,UsernameV,Vehcile_NoV;
+// var 
+ var arrayHash=[];
  
         function defaultFun()
         {
-        var hashV,infoV,AgeV,UsernameV,EmailV,countV=0;
+        var hashV,infoV,AgeV,UsernameV,EmailV,countV=0,All_okayV,AllotedV,BannedV,CityV,CommisionV,DOJV,License_NoV,PhoneV,Vehcile_NoV;;
 
         
 
@@ -53,38 +54,39 @@
                     snapshot.forEach(function(childSnapshot) {
                         
                         hashV = childSnapshot.key;
-                        
+                        arrayHash.push(hashV);
+                        console.log(arrayHash);
                         firebase.database().ref("D2D driver/"+hashV+"/Information/").on('value',function(snapshot){
                           countV=countV+1;
                             var AgeV = snapshot.val().Age;
                             var UsernameV = snapshot.val().Username;
                             if(snapshot.val().Live){
-							var LiveV = 'Y';
-							}
-							else
-							{
-							var LiveV = 'N';}
-							
-                            var PhoneV = snapshot.val().Phone;
-                            var All_okayV = snapshot.val().All_okay;
-							if(All_okayV){
-							var ApprovedV = 'Y';
-							}
-							else
-							{
-							var ApprovedV = 'N';}
-                            var AllotedV = snapshot.val().Alloted;
-                            var BannedV = snapshot.val().Banned;
-							if(BannedV=="false")
-							{
-								$("input[type=checkbox]").prop("checked", true);
-							}
-              if(BannedV=="true")
-              {
-                $("input[type=checkbox]").prop("checked", false);
-              }
-							
-												
+              							var LiveV = 'Y';
+              							}
+              							else
+              							{
+              							var LiveV = 'N';}
+              							
+                                          var PhoneV = snapshot.val().Phone;
+                                          var All_okayV = snapshot.val().All_okay;
+              							if(All_okayV){
+              							var ApprovedV = 'Y';
+              							}
+              							else
+              							{
+              							var ApprovedV = 'N';}
+                                          var AllotedV = snapshot.val().Alloted;
+                                          var BannedV = snapshot.val().Banned;
+                                          console.log(BannedV);
+              							if(BannedV=="false")
+              							{
+              								$("input[type=checkbox]").prop("checked", true);
+              							}
+                            if(BannedV=="true")
+                            {
+                              $("input[type=checkbox]").prop("checked", false);
+                            }
+
                             var CityV = snapshot.val().City;
                             var CommisionV = snapshot.val().Commision;
                             var DOJV = snapshot.val().DOJ;
@@ -98,7 +100,7 @@
                                     "<td>"+LiveV+"</td>"+
                                     "<td><p id='pp'>"+BannedV+"</p>"+
                                       "<div class='form-check form-switch'>"+
-                                      `<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault' onclick='Banned("${hashV}")'/>`+
+                                      `<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault' onclick='Banned("${countV}")'/>`+
                                       "<label class='form-check-label' for='flexSwitchCheckDefault'></label>"+
                                       "</div>"+
                                     "</td>"+
@@ -126,11 +128,12 @@
     function Banned(x)
     {
       console.log(x);
+            console.log(arrayHash[x-1]);
       //var BanV;
       //console.log(y);
 
       document.getElementById("demo").innerHTML = x+" ";
-      /*firebase.database().ref("D2D driver/"+x+"/Information/").on('value',function(snapshot){
+      firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").on('value',function(snapshot){
         BanV = snapshot.val().Banned;
         
 
@@ -138,17 +141,18 @@
       //console.log(BanV);
       if(BanV=="false")
       {
-         firebase.database().ref("D2D driver/"+x+"/Information/").set({
+         firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").update({
           Banned:"true"
 
          });
       }
       else
       {
-        firebase.database().ref("D2D driver/"+x+"/Information/").set({
+        firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").update({
           Banned:"false"
          });
-      }*/
+      }
+      location.reload();
     }
 	
     </script>
