@@ -41,6 +41,7 @@
 //----------------------------Ready Data--------------------------------------------------------------------------//
 // var 
  var arrayHash=[];
+ var arrayBan=[];
  
         function defaultFun()
         {
@@ -77,15 +78,12 @@
               							var ApprovedV = 'N';}
                                           var AllotedV = snapshot.val().Alloted;
                                           var BannedV = snapshot.val().Banned;
-                                          console.log(BannedV);
-              							if(BannedV=="false")
-              							{
-              								$("input[type=checkbox]").prop("checked", true);
-              							}
-                            if(BannedV=="true")
-                            {
-                              $("input[type=checkbox]").prop("checked", false);
-                            }
+                                          arrayBan.push(BannedV);
+                                          //console.log(BannedV);
+              							if(BannedV=="true")
+                              arrayBan[countV-1]="Ban";
+                            if(BannedV=="false")
+                              arrayBan[countV-1]="UnBan";
 
                             var CityV = snapshot.val().City;
                             var CommisionV = snapshot.val().Commision;
@@ -98,10 +96,10 @@
                                     "<td>"+EmailV+"</td>"+
                                     "<td>2000$</td>"+
                                     "<td>"+LiveV+"</td>"+
-                                    "<td><p id='pp'>"+BannedV+"</p>"+
+                                    "<td><p id='pp'>"+arrayBan[countV-1]+"</p>"+
                                       "<div class='form-check form-switch'>"+
-                                      `<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault' onclick='Banned("${countV}")'/>`+
-                                      "<label class='form-check-label' for='flexSwitchCheckDefault'></label>"+
+                                      `<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault`+countV+`' onclick='Banned("${countV}")'/>`+
+                                      "<label class='button button1' for='button' id='buttonLabel'></label>"+
                                       "</div>"+
                                     "</td>"+
                                     "<td>"+ApprovedV+"</td>"+
@@ -115,8 +113,18 @@
                                       "</div>"+
                                     "</td>"+
                                 "</tr>";
-                                //console.log(str);
+                                console.log('flexSwitchCheckDefault'+countV);
                                 $('#add').append(str);
+                                if(arrayBan[countV-1]=="Ban")
+                                {
+                                  $("#flexSwitchCheckDefault"+countV).attr("checked", true);
+                                  $('#activate').click();
+                                }
+                                if(arrayBan[countV-1]=="UnBan")
+                                {
+                                  $("#flexSwitchCheckDefault"+countV).attr("checked", false);
+                                  $('#activate').click();
+                                }
                             //Commisiion / Commission / Commision
                             //document.write(str);
                         });
@@ -125,6 +133,7 @@
                 });
         
     }
+     
     function Banned(x)
     {
       console.log(x);
@@ -132,7 +141,7 @@
       //var BanV;
       //console.log(y);
 
-      document.getElementById("demo").innerHTML = x+" ";
+      //document.getElementById("demo").innerHTML = x+" ";
       firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").on('value',function(snapshot){
         BanV = snapshot.val().Banned;
         
@@ -145,14 +154,16 @@
           Banned:"true"
 
          });
+         
       }
       else
       {
         firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").update({
           Banned:"false"
          });
+        
       }
-      location.reload();
+     location.reload();
     }
 	
     </script>
