@@ -76,7 +76,7 @@
                         //
                         firebase.database().ref("Admin_User/"+UsernameV).on('value',function(snapshot){
                           countV=countV+1;
-						  var NameV = snapshot.val().Admin_Name;
+						              var NameV = snapshot.val().Admin_Name;
                           var PasswordV = snapshot.val().Admin_Password;
                           var EmailV = snapshot.val().Admin_Email;
                           var UsrnameV = snapshot.val().Admin_Username;
