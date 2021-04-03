@@ -13,21 +13,204 @@
   
         
     </head>
-    <body>
-     
+    
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
 
-      
-        <div class="headContent" >                                 
-            <div class="panelContainer">
-                  <div class="adminPart">
-                      <h2> Manage Countries</h2>
-                      <nav aria-label="breadcrumb" class="breadClass">
-                          <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Countries</li>
-                          </ol>
-                        </nav>
-                  </div>
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  font-size: 30px;
+  color:red;
+  margin-left: 50px;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color:black;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.sidenav a:hover{
+  color: red;
+}
+
+.dropdown-btn:hover {
+  color: red;
+}
+
+
+.active {
+  background-color: #282828;
+  color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #eb5e71;
+  padding-left: 8px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+.main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+<body>
+
+  <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#about">Dashboard</a>
+
+        <a href="#services">Manage Admin Users</a>
+
+        <button class="dropdown-btn">Manage Users
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="#">Manage Riders</a>
+          <a href="#">Manage Drivers</a>
+ 
+        </div>
+
+        <button class="dropdown-btn">Manage Rides
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Ride Requests</a>
+            <a href="#">Customer Rides</a>
+            <a href="#">Ride Complaints</a>
+          </div>
+
+          <button class="dropdown-btn">Ride Ratings
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Rider Ratings</a>
+            <a href="#">Driver Ratings</a>
+
+          </div>
+
+          <button class="dropdown-btn">Manage Vehicles/Taxis
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Vehicles/taxis Types</a>
+            <a href="#">Registered Cabs</a>
+            <a href="#">Car Makes</a>
+            <a href="#">Car Models</a>
+          </div>
+
+
+          <a href="#services">Manage Withdrawal Requests</a>
+
+          <a href="#services">Manage Discount Coupons</a>
+
+
+          <button class="dropdown-btn">Stats On Map
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Ride Stats</a>
+            <a href="#">Driver Availability Stats</a>
+ 
+          </div>
+
+          <button class="dropdown-btn">Settings
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+
+          <button class="dropdown-btn">Localizations
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Manage Countries</a>
+            <a href="#">Manage States</a>
+            <a href="#">Geo Fence Locations</a>
+          </div>
+
+          <button class="dropdown-btn">CMS
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Ride Cancel Reasons</a>
+            <a href="#">Cms Pages</a>
+            <a href="#">Push Notifications</a>
+          </div>
+
+
+          <button class="dropdown-btn">Reports
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Riders</a>
+            <a href="#">Drivers</a>
+            <a href="#">Commissions</a>
+            <a href="#">TAX</a>
+
+          </div>
+  </div>
+
+
+
+<div class="main">
+   <div class="main">
+<!--paste before this head content, the upper code is the copied code-->
+    <div class="headContent" >
+        <div class="panelContainer">
+            <div class="adminPart">
+              <!-- paste the span tag here like this-->
+                  <span style="font-size:17px;cursor:pointer" onclick="openNav()">&#9776;</span>  
+                  <h2>Manage Countries</h2>
+                  <nav aria-label="breadcrumb" class="breadClass">
+                  <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item ">Countries</li>    
+                  </ol>
+                  </nav>
+          </div>
 
                    <!-------Search Bar-->
                <form class="example" >
@@ -444,43 +627,58 @@
 
 
             <!--Search Bar Script-->
-            <script>
-              $(".js-open-modal").click(function(){
-              $(".box").addClass("visible");
-            });
-
-            $(".js-close-modal").click(function(){
-              $(".box").removeClass("visible");
-            });
-
-            $(document).click(function(event) {
-              
-              if (!$(event.target).closest(".box,.js-open-modal").length) {
-                $("body").find(".box").removeClass("visible");
-              }
-            });
-            </script>
-
-            <!--AddAdminUser Action ChangePassword Script-->
-            <script>
-
-              
-              var modal=document.getElementById('head1');
-              var action1=document.getElementById('action');
-              var changePassword1=document.getElementById('changePassword');
-              
-              window.onclick=function(event){
-                if(event.target == modal || event.target == action1 || event.target == changePassword1){
-                  modal.style.display="none";
-                  action1.style.display="none";
-                  changePassword1.style.display="none";
-                }
-              }
-            </script>
-<script>
-        function deleteRating() {
-            confirm("Do you want to delete ?");
+              <script>
+        
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+          } else {
+          dropdownContent.style.display = "block";
+          }
+          });
         }
+        
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "black";
+          }
+
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "black";
+            
+          }
+</script>
+
+<script>
+    function deleteRating(){
+      confirm("Do you want to Delete");
+    }
+</script>
+
+<script>
+    $(".js-open-modal").click(function(){
+    $(".box").addClass("visible");
+  });
+
+  $(".js-close-modal").click(function(){
+    $(".box").removeClass("visible");
+  });
+
+  $(document).click(function(event) {
+    if (!$(event.target).closest(".box,.js-open-modal").length) {
+      $("body").find(".box").removeClass("visible");
+    }
+  });
 </script>
     </body>
 </html>

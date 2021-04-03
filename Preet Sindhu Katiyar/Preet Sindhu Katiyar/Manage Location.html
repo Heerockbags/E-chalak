@@ -3,7 +3,7 @@
         <title>
             Manage Location
         </title>
-        <link rel="stylesheet" href="tempcss3.css">
+        <link rel="stylesheet" href="tempCSS2.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -11,23 +11,246 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
-        
-    </head>
-    <body>
-     
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
 
-      
-        <div class="headContent" >                                 
-            <div class="panelContainer">
-                  <div class="adminPart">
-                      <h2> Manage Location</h2>
-                      <nav aria-label="breadcrumb" class="breadClass">
-                          <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Locations</li>
-                          </ol>
-                        </nav>
-                  </div>
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+    </head>
+       
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 150px;
+  font-size: 30px;
+  color:red;
+  margin-left: 50px;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color:black;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.sidenav a:hover{
+  color: red;
+}
+
+.dropdown-btn:hover {
+  color: red;
+}
+
+
+.active {
+  background-color: #282828;
+  color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #eb5e71;
+  padding-left: 8px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+.main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+<body>
+
+  <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#about">Dashboard</a>
+
+        <a href="#services">Manage Admin Users</a>
+
+        <button class="dropdown-btn">Manage Users
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="#">Manage Riders</a>
+          <a href="#">Manage Drivers</a>
+ 
+        </div>
+
+        <button class="dropdown-btn">Manage Rides
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Ride Requests</a>
+            <a href="#">Customer Rides</a>
+            <a href="#">Ride Complaints</a>
+          </div>
+
+          <button class="dropdown-btn">Ride Ratings
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Rider Ratings</a>
+            <a href="#">Driver Ratings</a>
+
+          </div>
+
+          <button class="dropdown-btn">Manage Vehicles/Taxis
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Vehicles/taxis Types</a>
+            <a href="#">Registered Cabs</a>
+            <a href="#">Car Makes</a>
+            <a href="#">Car Models</a>
+          </div>
+
+
+          <a href="#services">Manage Withdrawal Requests</a>
+
+          <a href="#services">Manage Discount Coupons</a>
+
+
+          <button class="dropdown-btn">Stats On Map
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Ride Stats</a>
+            <a href="#">Driver Availability Stats</a>
+ 
+          </div>
+
+          <button class="dropdown-btn">Settings
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+
+          <button class="dropdown-btn">Localizations
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Manage Countries</a>
+            <a href="#">Manage States</a>
+            <a href="#">Geo Fence Locations</a>
+          </div>
+
+          <button class="dropdown-btn">CMS
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Ride Cancel Reasons</a>
+            <a href="#">Cms Pages</a>
+            <a href="#">Push Notifications</a>
+          </div>
+
+
+          <button class="dropdown-btn">Reports
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <a href="#">Riders</a>
+            <a href="#">Drivers</a>
+            <a href="#">Commissions</a>
+            <a href="#">TAX</a>
+
+          </div>
+  </div>
+
+
+
+<div class="main">
+   <div class="main">
+<!--paste before this head content, the upper code is the copied code-->
+    <div class="headContent" >
+        <div class="panelContainer">
+            <div class="adminPart">
+              <!-- paste the span tag here like this-->
+                  <span style="font-size:17px;cursor:pointer" onclick="openNav()">&#9776;</span>  
+                  <h2> Manage Location</h2>
+                  <nav aria-label="breadcrumb" class="breadClass">
+                  <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item ">Locations</li>    
+                  </ol>
+                  </nav>
+          </div>
 
                    <!-------Search Bar-->
                <form class="example" >
@@ -340,6 +563,7 @@
 
                 <!--Change Password-->
 
+
                 <div class="modal" id="head1">
                   <div class="modal-content">
                   <div class="">
@@ -353,7 +577,6 @@
                   
                       <div class="container-form">
 
-                        
 <label for="fname"><b>Location Name*</b></label>
                         <input type="text" placeholder="" name="uname" required>
                         <br>
@@ -721,18 +944,20 @@
                             class="close">&times;</span>
                         <br>
 
-                        <h3 style="margin-left:20px ;"><b>Locations Setup</b></h3>
+                        <h5 style="margin-left:20px ;">
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'General')">General</button>
+  <button class="tablinks" onclick="openCity(event, 'Location')">Location Map</button>
+</div>
                         <div class="borderForm">
                             <form onsubmit="return validateForm()">
 
                                 <div class="container-form">
 
 
+<div id="General" class="tabcontent">
 <label for="uname"><b>Location Name*</b></label>
-                                    <input type="text" placeholder="" name="uname" required>
-
-<br>
-<br>
+ <input type="text" placeholder="" name="uname" required>
 <label for="uname"><b>Country</b></label>
 <select id="country" name="country">
     <option>select country</option>
@@ -988,9 +1213,7 @@
     <option value="YE">Yemen</option>
     <option value="ZM">Zambia</option>
     <option value="ZW">Zimbabwe</option>
-</select>
-<br>
-<br>                       
+</select>                      
  <label for="stats"><b>Status</b></label>
                         <select name="stats" id="statsId">
                           <option value="active">Active</option>
@@ -1012,6 +1235,12 @@
                   </div>
                   </div>
                 </div>
+
+<div id="Location Map" class="tabcontent">
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+
 <tr>
                                 <td>1</td>
                                 <td>DELHI - NCR</td>
@@ -1593,26 +1822,70 @@
     </script>
 
     <!--AddAdminUser Action ChangePassword Script-->
-    <script>
-
-
-        var modal = document.getElementById('head1');
-        var action1 = document.getElementById('action');
-        var changePassword1 = document.getElementById('changePassword');
-
-        window.onclick = function (event) {
-            if (event.target == modal || event.target == action1 || event.target == changePassword1) {
-                modal.style.display = "none";
-                action1.style.display = "none";
-                changePassword1.style.display = "none";
-            }
+         <script>
+        
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+          } else {
+          dropdownContent.style.display = "block";
+          }
+          });
         }
-    </script>
+        
+          function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "black";
+          }
+
+
+          function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "black";
+            
+          }
+</script>
     <script>
         function deleteRating() {
             confirm("Do you want to delete ?");
         }
     </script>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<script>
+function myMap() {
+var mapProp= {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
 </body>
 
 </html>
