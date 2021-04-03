@@ -55,32 +55,39 @@
                     snapshot.forEach(function(childSnapshot) {
                         
                         hashV = childSnapshot.key;
-                        arrayHash.push(hashV);
+                        if(!arrayHash.includes(hashV))
+                        {
+                          arrayHash.push(hashV);
                         console.log(arrayHash);
                         firebase.database().ref("D2D driver/"+hashV+"/Information/").on('value',function(snapshot){
                           countV=countV+1;
                             var AgeV = snapshot.val().Age;
                             var UsernameV = snapshot.val().Username;
+                            var EmailV=snapshot.val().Email;
+                            if(snapshot.val().Email=="")
+                            {
+                              EmailV="N.A.";
+                            }
                             if(snapshot.val().Live){
-              							var LiveV = 'Y';
-              							}
-              							else
-              							{
-              							var LiveV = 'N';}
-              							
+                            var LiveV = 'Y';
+                            }
+                            else
+                            {
+                            var LiveV = 'N';}
+                            
                                           var PhoneV = snapshot.val().Phone;
                                           var All_okayV = snapshot.val().All_okay;
-              							if(All_okayV){
-              							var ApprovedV = 'Y';
-              							}
-              							else
-              							{
-              							var ApprovedV = 'N';}
+                            if(All_okayV){
+                            var ApprovedV = 'Y';
+                            }
+                            else
+                            {
+                            var ApprovedV = 'N';}
                                           var AllotedV = snapshot.val().Alloted;
                                           var BannedV = snapshot.val().Banned;
                                           arrayBan.push(BannedV);
                                           //console.log(BannedV);
-              							if(BannedV=="true")
+                            if(BannedV=="true")
                               arrayBan[countV-1]="Ban";
                             if(BannedV=="false")
                               arrayBan[countV-1]="UnBan";
@@ -128,6 +135,8 @@
                             //Commisiion / Commission / Commision
                             //document.write(str);
                         });
+                        }
+                        
                     
                     });
                 });
