@@ -13,7 +13,7 @@
   
         
     </head>
-    <body onload="displayAdmin()">
+    
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
@@ -39,7 +39,7 @@
     
 //----------------------------Add admin--------------------------------------------------------------------------//
 		
-	  var a_name,a_usrname,a_email,a_password,a_cnfpassword;
+	  var a_name,a_usrname,a_email,a_password,a_cnfpassword,varIndex;
 		function addAdmin()
 		{
 			a_name=document.getElementById('admin_name').value;
@@ -63,7 +63,7 @@
 			
 		}
 //----------------------------Display Admin--------------------------------------------------------------------------//
-
+var arrayUser=[];
 	function displayAdmin()
         {
         var NameV,UsernameV,EmailV,PasswordV,StatusV,countV=0;
@@ -73,7 +73,11 @@
                     snapshot.forEach(function(childSnapshot, key) {
                         //key parameter
                         UsernameV = childSnapshot.key;
-                        //
+                        if(!arrayUser.includes(UsernameV))
+                        {
+                          arrayUser.push(UsernameV);
+                          console.log(arrayUser);
+                       
                         firebase.database().ref("Admin_User/"+UsernameV).on('value',function(snapshot){
                           countV=countV+1;
 						              var NameV = snapshot.val().Admin_Name;
@@ -111,12 +115,15 @@
                               statuschecked.setAttribute("class", "form-check-input");
                               statuschecked.setAttribute("id", "flexSwitchCheckChecked");
                               statuschecked.setAttribute("checked",true);
+                              statuschecked.setAttribute("onclick","Banned("+countV+")");
                           }
                           else{
                             var statuschecked = document.createElement('INPUT');
                               statuschecked.setAttribute("type", "checkbox");
                               statuschecked.setAttribute("class", "form-check-input");
                               statuschecked.setAttribute("id", "flexSwitchCheckChecked");
+                              statuschecked.setAttribute("onclick","Banned("+countV+")");
+
                           }
                           //statuschecked.setAttribute("onclick",statusupdate());
                           var label1 = document.createElement("LABEL");
@@ -134,6 +141,7 @@
                           but1.setAttribute("data-toggle","dropdown");
                           but1.setAttribute("aria-expanded","false");
                           but1.setAttribute("aria-haspopup","true");
+                          but1.setAttribute("onclick","setIndex("+countV+")");
                           but2.innerHTML="Edit";
                           but2.setAttribute("onclick","document.getElementById('action').style.display='block';");
                           but3.innerHTML="Change Password";
@@ -166,6 +174,7 @@
                           tbody.appendChild(trow);
 
 						});
+ }
                     
                     });
                 });
@@ -173,8 +182,74 @@
 
                 
     }
-    </script>
+    function Banned(x)
+    {
+      console.log(arrayUser[x-1]);
+      var statusChange;
+      firebase.database().ref("Admin_User/"+arrayUser[x-1]).on('value',function(snapshot){
+        statusChange=snapshot.val().Admin_Status;
+      });
+      if(statusChange=="inactive")
+      {
+        firebase.database().ref("Admin_User/"+arrayUser[x-1]).update({
+          Admin_Status:"active"
+        });
+      }
+      else
+        {
+        firebase.database().ref("Admin_User/"+arrayUser[x-1]).update({
+          Admin_Status:"inactive"
+        });
+      }
+location.reload();
+    }
+    function setIndex(x)
+    {
+      varIndex=x;
+      console.log(varIndex);
 
+    }
+    function updateAdmin()
+    {
+      console.log(varIndex);
+      console.log(arrayUser[varIndex-1]);
+      var u_name=document.getElementById('uName').value;
+      var u_usrname=document.getElementById('uUsername').value;
+      var u_email=document.getElementById('uEmail').value;
+      if(u_email!="" || u_usrname!="" || u_name!="")
+      {
+        firebase.database().ref("Admin_User/"+arrayUser[varIndex-1]).update({
+          Admin_Name: u_name,
+          Admin_Username: u_usrname,
+          Admin_Email: u_email
+        });
+      }
+      else
+      {
+        document.getElementById('error').innerHTML="Please add proper Details";
+      }
+    }
+    function changePass()
+    {
+      console.log(varIndex);
+      console.log(arrayUser[varIndex-1]);
+      var u_new_pass=document.getElementById('newCPass').value;
+      var u_conf_pass=document.getElementById('newConfPass').value;
+     var conf= confirm("Change Password"?);
+      if((u_new_pass!="" || u_conf_pass!="") && u_new_pass==u_conf_pass && conf)
+      {
+        firebase.database().ref("Admin_User/"+arrayUser[varIndex-1]).update({
+          Admin_Password: u_new_pass
+        });
+      }
+      else
+      {
+        alert("Please add proper Details");
+        console.log("error");
+      }
+    }
+    </script>
+<body onload="displayAdmin()">
 
 
 
@@ -347,25 +422,26 @@
                       <div class="container-form">
 
                         <label for="fname"><b>Full Name*</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
+                        <input type="text" placeholder="Enter Username" name="uname" id="uName" required>
                         <br>
                         <br>
 
                   
                         
                         <label for="uname"><b>Username*</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
+                        <input type="text" placeholder="Enter Username" name="uname" id="uUsername" required>
 
                         <br>
                         <br>
 
                        <label for="email"><b>E-mail*</b></label>
-                        <input type="email" name="email" required>
+                        <input type="email" name="email" id="uEmail" required>
+                        <label id="error"></label>
 
                         <br>
                         <br>
                   
-                        <button class="btn btn-primary" type="submit" >Save Changes</button>
+                        <button class="btn btn-primary" type="submit" onclick="updateAdmin()" >Save Changes</button>
                        
                       </div>
                   
@@ -396,18 +472,19 @@
 
                         
                         <label for="pswNew"><b>New Password*</b></label>
-                        <input type="password" name="pswNew" required>
+                        <input type="password" name="pswNew" id="newPass"required>
                         
                         <br>
                         <br>
                   
                         <label for="pswConfirm"><b>Confirm Password*</b></label>
-                        <input type="password" name="pswConfirm" required>
+                        <input type="password" name="pswConfirm" id="newConfPass" required>
+
 
                         <br>
                         <br>
                   
-                        <button class="btn btn-primary" type="submit" >Save Changes</button>
+                        <button class="btn btn-primary" type="submit" onclick="changePass()">Save Changes</button>
                        
                       </div>
                   
