@@ -59,11 +59,13 @@
                         {
                           arrayHash.push(hashV);
                         console.log(arrayHash);
-                        firebase.database().ref("D2D driver/"+hashV+"/Information/").on('value',function(snapshot){
+                        firebase.database().ref("D2D driver/"+hashV+"/Information/").once('value',function(snapshot){
+                          
                           countV=countV+1;
                             var AgeV = snapshot.val().Age;
                             var UsernameV = snapshot.val().Username;
                             var EmailV=snapshot.val().Email;
+                            //var latitude=snapshot.val().Current Latitude;
                             if(snapshot.val().Email=="")
                             {
                               EmailV="N.A.";
@@ -110,6 +112,7 @@
                                       "</div>"+
                                     "</td>"+
                                     "<td>"+ApprovedV+"</td>"+
+                                    //"<p>"++"</p>
                                     "<td><div class='dropdown bg-transparent'>"+
                                       "<button class='btn' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>- - -</button>"+
                                       "<div class='dropdown-menu' aria-labelledby='dropdownMenu2'>"+
@@ -120,7 +123,7 @@
                                       "</div>"+
                                     "</td>"+
                                 "</tr>";
-                                console.log('flexSwitchCheckDefault'+countV);
+                                //console.log('flexSwitchCheckDefault'+countV);
                                 $('#add').append(str);
                                 if(arrayBan[countV-1]=="Ban")
                                 {
