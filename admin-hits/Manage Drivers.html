@@ -50,8 +50,7 @@
         
 
             var query = firebase.database().ref("D2D driver/");
-            query.once("value")
-                .then(function(snapshot) {
+            query.once("value",function(snapshot) {
                     snapshot.forEach(function(childSnapshot) {
                         
                         hashV = childSnapshot.key;
@@ -65,12 +64,13 @@
                             var AgeV = snapshot.val().Age;
                             var UsernameV = snapshot.val().Username;
                             var EmailV=snapshot.val().Email;
-                            //var latitude=snapshot.val().Current Latitude;
+                    
                             if(snapshot.val().Email=="")
                             {
                               EmailV="N.A.";
                             }
-                            if(snapshot.val().Live){
+                            
+                            if(snapshot.val().Live=="true"){
                             var LiveV = 'Y';
                             }
                             else
@@ -79,7 +79,8 @@
                             
                                           var PhoneV = snapshot.val().Phone;
                                           var All_okayV = snapshot.val().All_okay;
-                            if(All_okayV){
+                                          
+                            if(All_okayV=="True"){
                             var ApprovedV = 'Y';
                             }
                             else
@@ -94,10 +95,7 @@
                             if(BannedV=="false")
                               arrayBan[countV-1]="UnBan";
 
-                            var CityV = snapshot.val().City;
-                            var CommisionV = snapshot.val().Commision;
-                            var DOJV = snapshot.val().DOJ;
-                            var Vehcile_NoV = snapshot.val().Vehcile_No;
+                         
                             var str="<tr>"+
                                     "<td>"+countV+"</td>"+
                                     "<td id='"+countV+"-"+UsernameV+"'>"+UsernameV+"</td>"+
@@ -105,14 +103,15 @@
                                     "<td>"+EmailV+"</td>"+
                                     "<td>2000$</td>"+
                                     "<td>"+LiveV+"</td>"+
-                                    "<td><p id='pp'>"+arrayBan[countV-1]+"</p>"+
+                                    "<td>"+
+                                    //<p id='pp'>"+arrayBan[countV-1]+"</p>
                                       "<div class='form-check form-switch'>"+
                                       `<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault`+countV+`' onclick='Banned("${countV}")'/>`+
                                       "<label class='button button1' for='button' id='buttonLabel'></label>"+
                                       "</div>"+
                                     "</td>"+
-                                    "<td>"+ApprovedV+"</td>"+
-                                    //"<p>"++"</p>
+                                    "<td>"+ApprovedV+"</p></td>"+
+                                    //
                                     "<td><div class='dropdown bg-transparent'>"+
                                       "<button class='btn' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>- - -</button>"+
                                       "<div class='dropdown-menu' aria-labelledby='dropdownMenu2'>"+
@@ -143,14 +142,16 @@
                     
                     });
                 });
+    //reupdate();
         
     }
+
      
     function Banned(x)
     {
       console.log(x);
             console.log(arrayHash[x-1]);
-      //var BanV;
+      var BanV;
       //console.log(y);
 
       //document.getElementById("demo").innerHTML = x+" ";
@@ -159,23 +160,23 @@
         
 
       });
-      //console.log(BanV);
+      console.log(BanV);
       if(BanV=="false")
       {
          firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").update({
           Banned:"true"
 
          });
-         
+         location.reload();
       }
       else
       {
         firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").update({
           Banned:"false"
          });
-        
+        location.reload();
       }
-     location.reload();
+     
     }
 
     

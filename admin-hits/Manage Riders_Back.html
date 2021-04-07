@@ -128,10 +128,11 @@ var arrayRider=[];
                               but1.setAttribute("aria-expanded","false");
                               but1.setAttribute("aria-haspopup","true");
                               but2.innerHTML="Edit";
-                            // but2.setAttribute("onclick","document.getElementById('action').style.display='block';");
+                              but2.setAttribute("onclick","actionPerform1()");
                               but3.innerHTML="Transaction";
-                            // but3.setAttribute("onclick","document.getElementById('changePassword').style.display='block';");
+                              but3.setAttribute("onclick","actionPerform2()");
                               but4.innerHTML="Points";
+                              but4.setAttribute("onclick","actionPerform3()");
                               
 
                               div1.appendChild(statuschecked);
@@ -181,6 +182,24 @@ var arrayRider=[];
       }
       location.reload();
     }
+
+
+     function actionPerform1(){
+        var changePassword1 = document.getElementById('action1');
+        changePassword1.style.display = "block";
+      }
+
+      
+      function actionPerform2(){
+        var changePassword2 = document.getElementById('action2');
+        changePassword2.style.display = "block";
+      }
+
+      
+      function actionPerform3(){
+        var changePassword3 = document.getElementById('action3');
+        changePassword3.style.display = "block";
+      }
     </script>
 
 
@@ -203,7 +222,355 @@ var arrayRider=[];
                       </nav>
                 </div>
 
-               
+               <div class="modal" id="action1">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('action1').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                    
+                   <h3 style="margin-left:20px ;"><b>Driver Setup  </b></h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        <label for="fname"><b>Name</b></label>
+                        <input type="text" placeholder="" name="uname" style="width: 250px;" required>
+                        <br>
+                        <br>
+                        
+                        <label for="email"><b>Email</b></label>
+                        <input type="email" placeholder="" name="email" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                        
+                        <label for="phone"><b>Phone</b></label>
+                        <input type="number" placeholder="" name="phone" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                        
+
+                        <label for="country"><b>Country</b></label>
+                        <select name="country" id="countryId">
+                            <option value="active">India</option>
+                            <option value="inactive">Bangladesh</option>
+                        </select>
+                        <br>
+                        <br>
+                       
+                        
+                        <label for="state"><b>State</b></label>
+                        <select name="state" id="stateId">
+                            <option value="active">Bihar</option>
+                            <option value="inactive">UP</option>
+                        </select>
+                        <br>
+                        <br>
+
+                        <label for="city"><b>City</b></label>
+                        <input type="text" placeholder="" name="city" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                        <label for="address"><b>Address</b></label>
+                        <input type="text" placeholder="" name="address" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                        <label for="pcode"><b>Postal Code</b></label>
+                        <input type="number" placeholder="" name="pcode" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                         
+                        <label for="gender"><b>Gender</b></label>
+                        <select name="gender" id="genderId">
+                            <option value="active">Male</option>
+                            <option value="inactive">Female</option>
+                        </select>
+                        <br>
+                        <br> 
+                        <label for="type"><b>Type</b></label>
+                        <select name="type" id="typeId">
+                            <option value="active">Driver</option>
+                            <option value="inactive">Driver +  Rider</option>
+                        </select>
+                        <br>
+                        <br> 
+                        <label for="status"><b>Status</b></label>
+                        <select name="status" id="statusId">
+                            <option value="active">Active</option>
+                            <option value="inactive">In-Active</option>
+                        </select>
+                        <br>
+                        <br>
+
+                        <label for="image"><b>Profile Image</b></label>
+                        <input type="file" name="image" required>
+
+                        <br>
+                        <br>
+
+                        <label for="dl"><b>D/L</b></label>
+                        <input type="file" name="dl" required>
+
+                        <br>
+                        <br>
+
+                        <label for="dldate"><b>[D/L]Valid Till Date</b></label>
+                        <input type="date" name="dldate" required>
+
+                        <br>
+                        <br>
+
+                        
+
+                        <label for="passport"><b>Passport Photo</b></label>
+                        <input type="file" name="passport" required>
+
+                        
+                        <br>
+                        <br>
+
+
+
+                       
+
+
+                        <button class="btn btn-primary" type="submit">Save Changes</button> 
+                  
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+                <div class="modal" id="action2">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('action2').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                    
+                   <h3 style="margin-left:20px ;"><b>User Transaction </b>
+                    
+                    <a onclick="document.getElementById('addNew').style.display='block';" class="btn btn-light "
+                        style="float:right;margin-right:20px;" href="#" role="button">
+                        <span style="float:right;margin-right:25px;"> + Add New</span>
+                    </a>
+
+                  
+
+                  </h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        <div class="tablecontents">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                    <th scope="col">TransactionID</th>
+                                    <th scope="col">DATE</th>
+                                    <th scope="col">Credit</th>
+                                    <th scope="col">Debit</th>
+                                    <th scope="col">Balance</th>
+                                    
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Status</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody  >
+      
+                                    
+      
+                                </tbody>
+      
+                          </table>
+      
+                      </div>
+      
+
+                  
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+                <div class="modal" id="addNew">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('addNew').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                    
+                   <h3 style="margin-left:20px ;"><b>Add User Transaction</b></h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        <label for="type"><b>Type</b></label>
+                        <select name="type" id="typeId">
+                          <option value="">Credit</option>
+                          <option value="">Debit</option>
+                        </select>
+
+                        <label for="amnt"><b>Amount</b></label>
+                        <input type="number" placeholder=""  name="amnt" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                        
+                        <label for="comment"><b>Comments</b></label>
+                        <input type="text" placeholder=""  name="comments" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                       
+
+
+                        <button class="btn btn-primary" type="submit">Save Changes</button> 
+                  
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+
+                <div class="modal" id="action3">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('action3').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                    
+                   <h3 style="margin-left:20px ;"><b>Credit Points </b>
+                    
+                    <a onclick="document.getElementById('addPoints').style.display='block';" class="btn btn-light "
+                        style="float:right;margin-right:20px;" href="#" role="button">
+                        <span style="float:right;margin-right:25px;"> + Add Points</span>
+                    </a>
+
+                  
+
+                  </h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        <div class="tablecontents">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                    <th scope="col">Sr.No</th>
+                                    <th scope="col">DATE</th>
+                                    <th scope="col">Points</th>
+                                    <th scope="col">Description</th>
+
+                                  </tr>
+                                </thead>
+                                <tbody  >
+      
+                                    
+      
+                                </tbody>
+      
+                          </table>
+      
+                      </div>
+      
+
+                  
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
+
+                <div class="modal" id="addPoints">
+                  <div class="modal-content">
+                  <div class="">
+                    
+                    <span onclick="document.getElementById('addPoints').style.display='none'" role="button" class="close">&times;</span>
+                    <br>
+                    
+                    
+                   <h3 style="margin-left:20px ;"><b>Add Points </b></h3> 
+                   <div class="borderForm">
+                    <form >
+                  
+                      <div class="container-form">
+
+                        <label for="ponts"><b>Points</b></label>
+                        <input type="number" placeholder="" name="points" style="width: 250px;" required>
+                        <br>
+                        <br>
+                        
+                        <label for="comment"><b>Comments</b></label>
+                        <input type="text" placeholder=""  name="comments" style="width: 250px;" required>
+                        <br>
+                        <br>
+
+                       
+
+
+                        <button class="btn btn-primary" type="submit">Save Changes</button> 
+                  
+                       
+                      </div>
+                  
+                     
+                    </form>
+
+                   </div>
+
+                  
+                  </div>
+                  </div>
+                </div>
+
                 
                 <h3 style="margin-left:25px;">Rider Listing</h3>
                 <br>
