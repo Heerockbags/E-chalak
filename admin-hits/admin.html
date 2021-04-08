@@ -58,13 +58,13 @@
                         
                         firebase.database().ref("D2D auto/"+hashV+"/Information/").on('value',function(snapshot){
                             var DOJV = snapshot.val().DOJ;
-                            var resr = DOJV.split("-");
+                            var resr = DOJV.split('-');
                             var d = new Date();
                             var day=d.getDate();
                             var month = d.getMonth();
                             var year = d.getFullYear();
                             var pastDate = d.getDate() - 7;
-                            //console.log(month-1);
+                            
 
                             if(pastDate<0)
                             {
@@ -74,24 +74,24 @@
                             }
 
                             //ourDate.setDate(pastDate);
-                            //console.log(resr);
+                            
 
-                            if(resr[0]==day&&resr[1]==month+1 && resr[2]==year-1)
+                            if(resr[0]==day&&resr[1]==month+1 && resr[2]==year)
                             {
                                 riderToday=riderToday+1;
-                                //console.log(driverToday);
+                                //console.log(riderToday);
                             }
 
                             if(resr[0]>pastDate && resr[1]==month+1)
                             {
                                 riderWeek=riderWeek+1;
-                                //console.log(driverWeek);
+                                //console.log(riderWeek);
 
                             }
                             if(resr[1]>=month-1 &&(resr[2]==year || resr[2]==year-1))
                             {
                                 riderQuarter=riderQuarter+1;
-                                console.log(riderQuarter);
+                                //console.log(riderQuarter);
                                 $('#riderQuarter').text(riderQuarter);
 
                             }
@@ -119,8 +119,6 @@
                                     var BannedV='N';
                                 }
                                 var DOJV = snapshot.val().DOJ;
-                                
-
                                 var s="<tr>"+
                                 "<th scope='row'>"+countV+"</th>"+
                                 "<td>"+UsernameV+"</td>"+
