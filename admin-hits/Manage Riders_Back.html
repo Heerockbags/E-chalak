@@ -1,13 +1,13 @@
 <html>
     <head>
         <title>
-            Manage Drivers
+            DashBoard Content
         </title>
         <link rel="stylesheet" href="tempCSS.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
   
@@ -39,151 +39,152 @@
         firebase.analytics();
                                
 //----------------------------Ready Data--------------------------------------------------------------------------//
-// var 
- var arrayHash=[];
- var arrayBan=[];
- 
+var arrayRider=[];
         function defaultFun()
         {
-        var hashV,infoV,AgeV,UsernameV,EmailV,countV=0,All_okayV,AllotedV,BannedV,CityV,CommisionV,DOJV,License_NoV,PhoneV,Vehcile_NoV;;
+        var hashV,infoV,AgeV,UsernameV,EmailV,countV=0;
 
         
 
-            var query = firebase.database().ref("D2D driver/");
-            query.once("value",function(snapshot) {
+            var query = firebase.database().ref("D2D auto/");
+            query.once("value")
+                .then(function(snapshot) {
                     snapshot.forEach(function(childSnapshot) {
                         
                         hashV = childSnapshot.key;
-                        if(!arrayHash.includes(hashV))
+                        if(!arrayRider.includes(hashV))
                         {
-                          arrayHash.push(hashV);
-                        console.log(arrayHash);
-                        firebase.database().ref("D2D driver/"+hashV+"/Information/").once('value',function(snapshot){
-                          
-                          countV=countV+1;
-                            var AgeV = snapshot.val().Age;
-                            var UsernameV = snapshot.val().Username;
-                            var EmailV=snapshot.val().Email;
-                    
-                            if(snapshot.val().Email=="")
-                            {
-                              EmailV="N.A.";
-                            }
-                            
-                            if(snapshot.val().Live=="true"){
-                            var LiveV = 'Y';
-                            }
-                            else
-                            {
-                            var LiveV = 'N';}
-                            
-                                          var PhoneV = snapshot.val().Phone;
-                                          var All_okayV = snapshot.val().All_okay;
-                                          
-                            if(All_okayV=="True"){
-                            var ApprovedV = 'Y';
-                            }
-                            else
-                            {
-                            var ApprovedV = 'N';}
-                                          var AllotedV = snapshot.val().Alloted;
-                                          var BannedV = snapshot.val().Banned;
-                                          arrayBan.push(BannedV);
-                                          //console.log(BannedV);
-                            if(BannedV=="true")
-                              arrayBan[countV-1]="Ban";
-                            if(BannedV=="false")
-                              arrayBan[countV-1]="UnBan";
+                          arrayRider.push(hashV);
+                          console.log(arrayRider);
+                          firebase.database().ref("D2D auto/"+hashV+"/Information/").on('value',function(snapshot){
+                              countV=countV+1;
+                              var AgeV = snapshot.val().Age;
+                              var UsernameV = snapshot.val().Username;
+                              var EmailV = snapshot.val().Email;
+                              var PhoneV = snapshot.val().Phone;
+                              var StatusV = snapshot.val().Banned;
 
-                         
-                            var str="<tr>"+
-                                    "<td>"+countV+"</td>"+
-                                    "<td id='"+countV+"-"+UsernameV+"'>"+UsernameV+"</td>"+
-                                    "<td>"+PhoneV+"</td>"+
-                                    "<td>"+EmailV+"</td>"+
-                                    "<td>2000$</td>"+
-                                    "<td>"+LiveV+"</td>"+
-                                    "<td>"+
-                                    //<p id='pp'>"+arrayBan[countV-1]+"</p>
-                                      "<div class='form-check form-switch'>"+
-                                      `<input class='form-check-input' type='checkbox' id='flexSwitchCheckDefault`+countV+`' onclick='Banned("${countV}")'/>`+
-                                      "<label class='button button1' for='button' id='buttonLabel'></label>"+
-                                      "</div>"+
-                                    "</td>"+
-                                    "<td>"+ApprovedV+"</p></td>"+
-                                    //
-                                    "<td><div class='dropdown bg-transparent'>"+
-                                      "<button class='btn' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>- - -</button>"+
-                                      "<div class='dropdown-menu' aria-labelledby='dropdownMenu2'>"+
-                                        "<button class='dropdown-item' onclick ='actionPerform1()' type='button'>Edit</button>"+
-                                        "<button class='dropdown-item' onclick ='actionPerform2()' type='button'>Transaction</button>"+
-                                        "<button class='dropdown-item' onclick ='actionPerform3()' type='button'>Points</button>"+
-                                      "</div>"+
-                                      "</div>"+
-                                    "</td>"+
-                                "</tr>";
-                                //console.log('flexSwitchCheckDefault'+countV);
-                                $('#add').append(str);
-                                if(arrayBan[countV-1]=="Ban")
-                                {
-                                  $("#flexSwitchCheckDefault"+countV).attr("checked", false);
-                                  $('#activate').click();
-                                }
-                                if(arrayBan[countV-1]=="UnBan")
-                                {
-                                  $("#flexSwitchCheckDefault"+countV).attr("checked", true);
-                                  $('#activate').click();
-                                }
-                            //Commisiion / Commission / Commision
-                            //document.write(str);
-                        });
+                              var tbody = document.getElementById('add');
+                              var trow = document.createElement('tr');
+                              var td1 = document.createElement('td');
+                              var td2 = document.createElement('td');
+                              var td3 = document.createElement('td');
+                              var td4 = document.createElement('td');
+                              var td5 = document.createElement('td');
+                              var td6 = document.createElement('td');
+                              var td7 = document.createElement('td');
+                              var td8 = document.createElement('td');
+                              var td9 = document.createElement('td');
+
+
+                              var div1 = document.createElement('div');
+                              var div2 = document.createElement('div');
+                              var div3 = document.createElement('div'); 
+
+                              div1.className= "form-check form-switch";
+                              div2.className= "dropdown bg-transparent";
+                              div3.className= "dropdown-menu";
+                              div3.setAttribute("aria-labelledby","dropdownMenu2");
+
+
+
+                              td1.innerHTML= countV;
+                              td2.innerHTML= UsernameV;
+                              td3.innerHTML= PhoneV;
+                              td4.innerHTML= EmailV;
+                              td5.innerHTML= "2000$";
+                              td6.innerHTML= AgeV;
+                              td8.innerHTML="Y";
+
+
+                              if(StatusV== true){
+                                var statuschecked = document.createElement('INPUT');
+                                statuschecked.setAttribute("type", "checkbox");
+                                statuschecked.setAttribute("class", "form-check-input");
+                                statuschecked.setAttribute("id", "flexSwitchCheckChecked");
+                                statuschecked.setAttribute("checked",true);
+                                statuschecked.setAttribute("onclick","Banned("+countV+")");
+                              }
+                              else{
+                                var statuschecked = document.createElement('INPUT');
+                                  statuschecked.setAttribute("type", "checkbox");
+                                  statuschecked.setAttribute("class", "form-check-input");
+                                  statuschecked.setAttribute("id", "flexSwitchCheckChecked");
+                                  statuschecked.setAttribute("onclick","Banned("+countV+")");
+                              }
+                              var label1 = document.createElement("LABEL");
+                              label1.setAttribute("class","form-check-label");
+                              var but1= document.createElement("button");
+                              var but2= document.createElement("button");
+                              var but3= document.createElement("button");
+                              var but4= document.createElement("button");
+                              but1.innerHTML="---";
+                              but1.className="btn";
+                              but2.className="dropdown-item";
+                              but3.className="dropdown-item";
+                              but4.className="dropdown-item";
+                              but1.setAttribute("id","dropdownMenu2");
+                              but1.setAttribute("data-toggle","dropdown");
+                              but1.setAttribute("aria-expanded","false");
+                              but1.setAttribute("aria-haspopup","true");
+                              but2.innerHTML="Edit";
+                              but2.setAttribute("onclick","actionPerform1()");
+                              but3.innerHTML="Transaction";
+                              but3.setAttribute("onclick","actionPerform2()");
+                              but4.innerHTML="Points";
+                              but4.setAttribute("onclick","actionPerform3()");
+                              
+
+                              div1.appendChild(statuschecked);
+                              div1.appendChild(label1);
+                              div2.appendChild(but1);
+                              div3.appendChild(but2);
+                              div3.appendChild(but3);
+                              div3.appendChild(but4);
+                              div2.appendChild(div3);
+                              td7.appendChild(div1);
+                              td9.appendChild(div2);  
+
+                              trow.appendChild(td1);
+                              trow.appendChild(td2);
+                              trow.appendChild(td3);
+                              trow.appendChild(td4);
+                              trow.appendChild(td5);
+                              trow.appendChild(td6);
+                              trow.appendChild(td7);
+                              trow.appendChild(td8);
+                              trow.appendChild(td9);
+                              tbody.appendChild(trow);
+                          });
                         }
-                        
-                    
                     });
                 });
-    //reupdate();
         
-    }
-
-     
-    function Banned(x)
+      }
+      function Banned(x)
     {
-      console.log(x);
-            console.log(arrayHash[x-1]);
-      var BanV;
-      //console.log(y);
-
-      //document.getElementById("demo").innerHTML = x+" ";
-      firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").on('value',function(snapshot){
-        BanV = snapshot.val().Banned;
-        
-
+      console.log(arrayRider[x-1]);
+      var statusChange;
+      firebase.database().ref("D2D auto/"+arrayRider[x-1]+"/Information/").on('value',function(snapshot){
+        statusChange=snapshot.val().Banned;
       });
-      console.log(BanV);
-      if(BanV=="false")
+      if(statusChange==true)
       {
-         firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").update({
-          Banned:"true"
-
-         });
-         location.reload();
+        firebase.database().ref("D2D auto/"+arrayRider[x-1]+"/Information/").update({
+          Banned:false
+        });
       }
       else
-      {
-        firebase.database().ref("D2D driver/"+arrayHash[x-1]+"/Information/").update({
-          Banned:"false"
-         });
-        location.reload();
+        {
+        firebase.database().ref("D2D auto/"+arrayRider[x-1]+"/Information/").update({
+          Banned:true
+        });
       }
-     
+      location.reload();
     }
 
-    
 
-
-
-      function actionPerform1(){
+     function actionPerform1(){
         var changePassword1 = document.getElementById('action1');
         changePassword1.style.display = "block";
       }
@@ -199,13 +200,8 @@
         var changePassword3 = document.getElementById('action3');
         changePassword3.style.display = "block";
       }
-
-      
-
-
-
-    
     </script>
+
 
 
     <body onload="defaultFun()">
@@ -214,19 +210,19 @@
         <div class="headContent" >
             <div class="panelContainer">
                 <div class="adminPart">
-                    <h2> <i>Manage Driver</i> </h2>
+                    <h2> <i>Manage Riders</i> </h2>
                     
 
                  
                       <nav aria-label="breadcrumb" class="breadClass">
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item"><a href="admin.html">Home</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Driver</li>
+                          <li class="breadcrumb-item active" aria-current="page">Riders</li>
                         </ol>
                       </nav>
                 </div>
-                
-                <div class="modal" id="action1">
+
+               <div class="modal" id="action1">
                   <div class="modal-content">
                   <div class="">
                     
@@ -360,8 +356,6 @@
                   </div>
                 </div>
 
-
-                
                 <div class="modal" id="action2">
                   <div class="modal-content">
                   <div class="">
@@ -534,6 +528,7 @@
                   </div>
                 </div>
 
+
                 <div class="modal" id="addPoints">
                   <div class="modal-content">
                   <div class="">
@@ -576,14 +571,8 @@
                   </div>
                 </div>
 
-
-
-
-
-               
                 
-                <h3 style="margin-left:25px;">Driver Listing</h3>
-                <p id="demo"></p>
+                <h3 style="margin-left:25px;">Rider Listing</h3>
                 <br>
                 <div class="tablecontent">
                     <table class="table">
@@ -594,7 +583,7 @@
                               <th scope="col">PHONE</th>
                               <th scope="col">EMAIL</th>
                               <th scope="col">BALANCE</th>
-                              <th scope="col">ONLINE</th>
+                              <th scope="col">POINTS</th>
                               <th scope="col">STATUS</th>
                               <th scope="col">APPROVED</th>
                               <th scope="col">ACTION</th>

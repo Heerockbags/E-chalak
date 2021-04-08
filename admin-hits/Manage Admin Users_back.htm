@@ -218,11 +218,15 @@ location.reload();
       var u_email=document.getElementById('uEmail').value;
       if(u_email!="" || u_usrname!="" || u_name!="")
       {
-        firebase.database().ref("Admin_User/"+arrayUser[varIndex-1]).update({
+        if(confirm("Change the Details?"))
+        {
+          firebase.database().ref("Admin_User/"+arrayUser[varIndex-1]).update({
           Admin_Name: u_name,
           Admin_Username: u_usrname,
           Admin_Email: u_email
         });
+        }
+        
       }
       else
       {
@@ -233,20 +237,31 @@ location.reload();
     {
       console.log(varIndex);
       console.log(arrayUser[varIndex-1]);
-      var u_new_pass=document.getElementById('newCPass').value;
+      var u_new_pass=document.getElementById('newPass').value;
       var u_conf_pass=document.getElementById('newConfPass').value;
-     var conf= confirm("Change Password"?);
-      if((u_new_pass!="" || u_conf_pass!="") && u_new_pass==u_conf_pass && conf)
+      var done=false;
+     console.log(u_new_pass);
+     
+      if((u_new_pass!="" || u_conf_pass!="") && u_new_pass==u_conf_pass)
       {
-        firebase.database().ref("Admin_User/"+arrayUser[varIndex-1]).update({
+        if(confirm("Change Password?"))
+        {
+          firebase.database().ref("Admin_User/"+arrayUser[varIndex-1]).update({
           Admin_Password: u_new_pass
         });
+          done= true;
+        }
       }
       else
       {
-        alert("Please add proper Details");
+        alert("Please add proper Details \n Password either Empty or Not same as confirm password");
         console.log("error");
       }
+      if(done)
+      {
+        alert("Password Changed");
+      }
+      
     }
     </script>
 <body onload="displayAdmin()">
