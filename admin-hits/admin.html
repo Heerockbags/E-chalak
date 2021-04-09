@@ -275,6 +275,8 @@
                          firebase.database().ref("D2D rides/"+RideIDV+"/").on('value',function(snapshot){
                             
                             var completedV=snapshot.val().Completed;
+                            var fareV=snapshot.val().fare;
+                            var dateV=snapshot.val().date;
                             if(completedV)
                             {
                                 completedV="Completed";
@@ -284,11 +286,11 @@
                                 completedV="Uncomplete"
                             }
                           var s= "<tr>"+
-                        "<th scope='row'>14/12/2018</th>"+
+                        "<th scope='row'>"+dateV+"</th>"+
                         "<td>"+RideIDV+"</td>"+
                         "<td>RAHUL</td>"+
                         "<td>DEEPANK</td>"+
-                        "<td>60.00$</td>"+
+                        "<td>₹ "+fareV+"</td>"+
                         "<td>"+completedV+"</td>"+
                         "</tr>";
                         $('#LatestRides').append(s);
