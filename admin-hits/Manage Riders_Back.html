@@ -199,27 +199,13 @@ var arrayRider=[];
       var R_usrname=document.getElementById('Rusername').value;
       var R_phonenumber=document.getElementById('Rphonenumber').value;
       var R_email=document.getElementById('Remail').value;
-      //var R_statusID=document.getElementById('RstatusID').value;
       if(confirm("Change the Details?"))
       {
         firebase.database().ref("D2D auto/"+arrayRider[varIndex-1]+"/Information/").update({
-              Username: R_usrname,
-              Email: R_email,
-              Phonenumber: R_phonenumber,
-              
-              });
-        //if(R_statusID=="active")
-        //{
-            
-        //}
-        /*else{
-            firebase.database().ref("D2D auto/"+arrayRider[varIndex-1]+"/Information/").update({
-                Username: R_usrname,
-                Email: R_email,
-                Phonenumber: R_phonenumber,
-                Banned:false
-            });*/
-        
+        Username: R_usrname,
+        Email: R_email,
+        Phone: R_phonenumber
+      });
       }
     }
         
@@ -332,7 +318,7 @@ var arrayRider=[];
                        
 
 
-                        <button type="submit" class="btn btn-primary" onclick="updateRider()" >Save Changes</button> 
+                        <button class="btn btn-primary" onclick="updateRider()" type="submit">Save Changes</button> 
                   
                        
                       </div>
