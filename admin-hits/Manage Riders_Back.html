@@ -127,6 +127,7 @@ var arrayRider=[];
                               but1.setAttribute("data-toggle","dropdown");
                               but1.setAttribute("aria-expanded","false");
                               but1.setAttribute("aria-haspopup","true");
+                              but1.setAttribute("onclick","setIndex("+countV+")");
                               but2.innerHTML="Edit";
                               but2.setAttribute("onclick","actionPerform1()");
                               but3.innerHTML="Transaction";
@@ -183,7 +184,46 @@ var arrayRider=[];
       location.reload();
     }
 
+    function setIndex(x)
+    {
+      varIndex=x;
+      console.log(varIndex);
 
+    }
+
+
+    function updateRider()
+    {
+      console.log(varIndex);
+      console.log(arrayRider[varIndex-1]);
+      var R_usrname=document.getElementById('Rusername').value;
+      var R_phonenumber=document.getElementById('Rphonenumber').value;
+      var R_email=document.getElementById('Remail').value;
+      var R_statusID=document.getElementById('RstatusID').value;
+      if(confirm("Change the Details?"))
+      {
+        if(R_statusID=="active")
+        {
+            firebase.database().ref("D2D auto/"+arrayRider[varIndex-1]+"/Information/").update({
+              Username: R_usrname,
+              Email: R_email,
+              Phonenumber: R_phonenumber,
+              Banned:true
+              });
+        }
+        else{
+            firebase.database().ref("D2D auto/"+arrayRider[varIndex-1]+"/Information/").update({
+                Username: R_usrname,
+                Email: R_email,
+                Phonenumber: R_phonenumber,
+                Banned:false
+            });
+        }
+      }
+    }
+        
+        
+        
      function actionPerform1(){
         var changePassword1 = document.getElementById('action1');
         changePassword1.style.display = "block";
@@ -236,19 +276,19 @@ var arrayRider=[];
                   
                       <div class="container-form">
 
-                        <label for="fname"><b>Name</b></label>
-                        <input type="text" placeholder="" name="uname" style="width: 250px;" required>
+                        <label for="fname"><b>Username</b></label>
+                        <input type="text" placeholder="" id="Rusername" name="uname" style="width: 250px;" required>
                         <br>
                         <br>
                         
                         <label for="email"><b>Email</b></label>
-                        <input type="email" placeholder="" name="email" style="width: 250px;" required>
+                        <input type="email" placeholder="" id="Remail" name="email" style="width: 250px;" required>
                         <br>
                         <br>
 
                         
                         <label for="phone"><b>Phone</b></label>
-                        <input type="number" placeholder="" name="phone" style="width: 250px;" required>
+                        <input type="number" placeholder="" id="Rphonenumber" name="phone" style="width: 250px;" required>
                         <br>
                         <br>
 
@@ -267,21 +307,21 @@ var arrayRider=[];
                     
                          
                         <label for="gender"><b>Gender</b></label>
-                        <select name="gender" id="genderId">
+                        <select name="gender" id="RgenderId">
                             <option value="active">Male</option>
                             <option value="inactive">Female</option>
                         </select>
                         <br>
                         <br> 
                         <label for="type"><b>Type</b></label>
-                        <select name="type" id="typeId">
+                        <select name="type" id="RtypeId">
                             <option value="active">Driver</option>
                             <option value="inactive">Driver +  Rider</option>
                         </select>
                         <br>
                         <br> 
                         <label for="status"><b>Status</b></label>
-                        <select name="status" id="statusId">
+                        <select name="status" id="RstatusId">
                             <option value="active">Active</option>
                             <option value="inactive">In-Active</option>
                         </select>
@@ -291,7 +331,7 @@ var arrayRider=[];
                        
 
 
-                        <button class="btn btn-primary" type="submit">Save Changes</button> 
+                        <button class="btn btn-primary" onclick="updateRider()" type="submit">Save Changes</button> 
                   
                        
                       </div>
